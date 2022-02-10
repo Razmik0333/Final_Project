@@ -46,16 +46,12 @@
   background-color: #424242;
   height: 40px;
 }
-.wrap{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-}
 .searchings{
   font-family: medium;
 }
 .searching{
+  display: flex;
   background-color: #ffffff;
   height: 65px;
   border-bottom: 1px solid grey;
@@ -73,10 +69,22 @@
 .navigation > a:hover{
   color: #E88848;
 }
+.network_tel{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 200px;
+}
 .phone > a {
   text-decoration: none;
   color: #ffffff;
   font-size: 90%;
+}
+.icon_tel{
+  height: 20px;
+}
+.img_net{
+  height: 25px;
 }
 .selected{
   display: flex;
