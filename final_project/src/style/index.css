@@ -1,0 +1,166 @@
+@font-face {
+  src:local("Helvetica LT Std Light"), url("./fonts/Helvetica\ LT\ Std\ Light.otf") format("truetype");
+  font-family: "Helvetica LT Std Light";
+}
+@font-face {
+  src:local("HelveticaLTStd-Roman"), url("./fonts/HelveticaLTStd-Roman.otf") format("truetype");
+  font-family: "HelveticaLTStd-Roman";
+}
+@font-face {
+  src:local("SegoeWP"), url("./fonts/SegoeWP.ttf") format("truetype");
+  font-family: "SegoeWP";
+}
+@font-face {
+  src:local("SegoeWPN"), url("./fonts/SegoeWPN.ttf") format("truetype");
+  font-family: "SegoeWPN";
+}
+@font-face {
+  src:local("Simplo W90 Caps DEMO"), url("./fonts/Simplo\ W90\ Caps\ DEMO.ttf") format("truetype");
+  font-family: "Simplo W90 Caps DEMO";
+}
+.content{
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+
+}
+
+.container{
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+aside{
+  width: 20%;
+  border: 2px solid #d6d6d6;
+}
+aside h1, p{
+  padding: 10px 20px;
+  font-family: "SegoeWP";
+  font-weight: 600;
+}
+
+aside ul li{
+  padding: 10px 15px;
+  font-family: "Segoe UI Symbol";
+  border-bottom: 1px solid #e6e7e8;
+  font-size: 15px;
+}
+
+.all{
+  background-color: #86c56a;
+  color: #fff;
+}
+.categories{
+  padding:10px 0px;
+
+}
+.category a {
+  text-decoration: none;
+  color:#6c6b6b ;
+}
+nav{
+  margin-top: 13px;
+}
+.right-side{
+  width: 80%;
+  margin-left: 9px;
+}
+.filter-items {
+  font-family: 'Helvetica LT Std Light';
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid #d6d6d6;
+  color: #6b6969;
+  background-color: #f5f5f5;
+}
+.active-filter {
+  color: #595959;
+  background-color: #fff;
+  border-bottom: 0;
+}
+
+.book-list {
+  padding: 20px 0;
+  margin-top: 10px;
+  
+  border: 1px solid #d6d6d6;
+  height: 1025px;
+  transition: box-shadow 1s ease;
+}
+.book-list article{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.section-item{
+  display: flex;
+}
+.section-item section{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+  align-items: center;
+}
+.book-list section:hover, .category:hover, .page:hover{
+  box-shadow: 5px 10px 18px #ccc;
+}
+.book-list article a{
+  text-decoration: none;
+  color: #595959;
+  
+}
+
+.book-title{
+  font-family:SegoeWPN ;
+  font-weight: 300;
+  width: 150px;
+  padding: 0;
+  text-align: center;
+  line-height: 20px;
+  font-size: 15px;
+}
+.book-cost{
+  font-family:HelveticaLTStd-Roman ;
+  font-weight: 300;
+  color:#f27274 ;
+}
+.page{
+  font-family: HelveticaLTStd-Roman;
+  font-weight: 300;
+  height: 35px;
+  display: flex;
+  margin-left: 5px;
+}
+
+.page-active{
+  border: 1px solid #e6e7e8;
+  border-bottom: 3px solid darkgreen ;
+}
+
+.pagination{
+  display: flex;
+  align-content: flex-end;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.pages{
+  display: flex;
+ flex-wrap: nowrap;
+ align-content: center;
+ justify-content: center;
+ align-items: center;
+}
+.pages a{
+ font-family: 'Helvetica LT Std Light';
+ text-decoration: none;
+ padding: 10px 20px;
+ color: #6b6969;
+}
