@@ -1,0 +1,13 @@
+.container{
+     width: 80%;
+     height: auto;
+     margin: 0 auto;
+}
+.content{
+     width: 100%;
+     height: auto;
+     background-color: #fff;
+     display: flex;
+     flex-wrap: nowrap;
+     flex-direction: row;
+}

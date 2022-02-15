@@ -1,16 +1,13 @@
 import BookCategories from '../BookCategories/BookCategories';
 import BookList from '../BookList/BookList';
-import Carousel from '../Carousel/Carousel';
-import DealOffTheMonth from '../DealOffTheMonth/DealOffTheMonth';
+import './Home.css';
 
 function Home() {
   return (
-    <>
-      <Carousel />
-      <DealOffTheMonth />
+    <div className="content">
       <BookCategories />
       <BookList />
-    </>
+    </div>
   );
 }
 export default Home;
