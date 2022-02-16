@@ -1,7 +1,7 @@
 import React from "react"
-import NavBar from "../navBar"
-import SearchBar from "../searchBar"
-import './Header.css';
+import NavBar from "./headerCompontnts/NavBar/NavBar";
+import SearchBar from "./headerCompontnts/SearchBar/SearchBar";
+// import './Header.css';
 // import { NavLink } from "react-router-dom"
 
 const Header = ()=> {
