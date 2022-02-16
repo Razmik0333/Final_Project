@@ -9,8 +9,9 @@ import BookFromCategory from './components/BookFromCategory/BookFromCategory';
 
 function App() {
   return (
-    <div className="container">
+    <>
       <Header />
+      
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -24,8 +25,9 @@ function App() {
           element={<BookFromCategory />}
         />
       </Routes>
+
       <Footer />
-    </div>
+    </>
   );
 }
 

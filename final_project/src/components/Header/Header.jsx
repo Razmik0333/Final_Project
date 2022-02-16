@@ -1,13 +1,15 @@
-import './Header.css';
+import React from "react"
+import NavBar from "./headerCompontnts/NavBar/NavBar";
+import SearchBar from "./headerCompontnts/SearchBar/SearchBar";
+// import './Header.css';
+// import { NavLink } from "react-router-dom"
 
-function Header() {
-  return (
-    <>
-
-      header
-
-    </>
-  );
+const Header = ()=> {
+    return (
+        <> 
+            <NavBar />
+            <SearchBar />
+        </>
+    )
 }
-
-export default Header;
+export default Header
