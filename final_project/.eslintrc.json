@@ -39,6 +39,6 @@
         "import/prefer-default-export": "off",
         "react/prop-types": "off",
         "prettier.endOfLine": 0,
-        "files.eol": "\n"
+        "files.eol": "\r"
     }
 }

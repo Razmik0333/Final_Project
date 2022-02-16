@@ -10,6 +10,12 @@
     border-bottom: 1px solid grey;
     font-family: medium;
 }
+.action{
+    display: flex;
+    justify-content: space-between;
+    max-width: 350px;
+    width: 100%;
+}
 .action_btn{
     color: #E88848;
     text-decoration: none;
