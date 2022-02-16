@@ -1,54 +1,52 @@
-import img from '../../images/book.png';
 import cart from '../../images/cart.svg';
 import heart from '../../images/heart.svg';
 import check from '../../images/check.svg';
 import './SingleBook.css';
 
-function SingleBook() {
+function SingleBook({ data }) {
+  const book = data.find((item) => item.isbn === localStorage.getItem('bookId'));
+  console.log('🚀 ~ file: SingleBook.jsx ~ line 8 ~ SingleBook ~ book', book);
+  const date = new Date(book.publishedDate.$date);
+  const getNumber = (num) => (num < 10 ? `0${num}` : num);
   return (
     <div className="book-content">
       <div className="book-picture">
         <section>
-          <img src={img} alt="" />
+          <img src={book.thumbnailUrl} alt={book.title} />
         </section>
       </div>
       <main className="book-desc">
         <div className="book-info">
           <section>
-            <h1 className="book-head">Star Wars Episode I</h1>
-            <span className="book-text">The Star Wars Episode I: The Phantom Menace novelization was written by Terry Brooks and published on April 21, 1999 by Del Rey. It is based on the script of the movie of the same name. Narration for the abridged audio version was performed by Michael Cumpsty. The unabridged version was performed by Alexander Adams. On January 31, 2012, a new paperback edition</span>
+            <h1 className="book-head">{book.title}</h1>
+            <ul className="book-authors">
+              {
+                book.authors.map((item) => (
+                  <li>{item}</li>
+                ))
+              }
+            </ul>
+            <span className="book-text">{book.longDescription}</span>
           </section>
         </div>
         <div className="desc-cart-section">
           <section className="desc-section">
             <ul className="description">
               <li>
-                <span>Քաշ</span>
-                <span>0.245000</span>
+                <span>Անվանում</span>
+                <span>{book.title}</span>
               </li>
               <li>
-                <span>Քաշ</span>
-                <span>0.245000</span>
+                <span>Էջերի քանակ</span>
+                <span>{book.pageCount}</span>
               </li>
               <li>
-                <span>Քաշ</span>
-                <span>0.245000</span>
+                <span>Վիճակ</span>
+                <span>{book.status === 'PUBLISH' ? 'Տպագրված է' : 'Տպագրված չէ'}</span>
               </li>
               <li>
-                <span>Քաշ</span>
-                <span>0.245000</span>
-              </li>
-              <li>
-                <span>Քաշ</span>
-                <span>0.245000</span>
-              </li>
-              <li>
-                <span>Քաշ</span>
-                <span>0.245000</span>
-              </li>
-              <li>
-                <span>Քաշ</span>
-                <span>0.245000</span>
+                <span>Ամսաթիվ</span>
+                <span>{`${getNumber(date.getDate())}.${getNumber(date.getMonth() + 1)}.${getNumber(date.getFullYear())}`}</span>
               </li>
             </ul>
           </section>

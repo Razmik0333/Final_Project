@@ -45,6 +45,7 @@
      cursor: pointer;
      align-items: center;
    }
+
    .book-list section:hover, .category:hover, .page:hover{
      box-shadow: 5px 10px 18px #ccc;
    }
