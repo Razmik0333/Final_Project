@@ -1,0 +1,77 @@
+.footer {
+    background-color: #F2F3F5;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    padding-bottom: 10px;
+}
+
+.container {
+    width: 100%;
+    display: inline-block;
+}
+
+.logo {
+    display: inline-block;
+    margin-left: 20px;
+    height: 70px;
+    width: 100%;
+}
+
+li{
+display:inline-block;
+}
+
+ul li{
+  margin: 20px 0 0 15px;
+}
+
+.menu_bar{
+display: inline;
+font-size: 13px;
+font-family: "bold", "arm-bold";
+margin-left: 40px;
+}
+
+.social{
+    width: 15px;
+    height: 15px; 
+    display: inline; 
+}
+
+.copyrights{
+    display: inline-block;
+    margin-left: 40px;
+    font-size: 14px;
+}
+
+span{
+    font-size: 12px;
+    font-weight: 400; 
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin-left: 25px;
+}
+
+a:hover {
+    color: orange;
+}
+
+img {
+    height: 30px;
+    vertical-align: middle;
+}
+
+hr {
+    margin: 0 40px 0 40px; 
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
