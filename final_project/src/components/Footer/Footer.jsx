@@ -1,5 +1,6 @@
 import React from "react";
 import './Footer.css';
+import { NavLink } from 'react-router-dom'
 
 function Footer() {
     return (
@@ -11,11 +12,11 @@ function Footer() {
                     </a>
 
                     <ul className='menu_bar'>
-                        <li><strong><a href='/about'>Մեր մասին</a></strong></li>
-                        <li><strong><a href='/news'>Նորություններ</a></strong></li>
-                        <li><strong><a href='/policy'>Ինչպես պատվիրել</a></strong></li>
-                        <li><strong><a href='/faq'>Հաճախ տրվող հարցեր</a></strong></li>
-                        <li><strong><a href='/adresses'>Կապ</a></strong></li>
+                        <li><strong><NavLink to={'/about'}>Մեր մասին</NavLink></strong></li>
+                        <li><strong><NavLink to={'/news'}>Նորություններ</NavLink></strong></li>
+                        <li><strong><NavLink to={'/policy'}>Ինչպես պատվիրել</NavLink></strong></li>
+                        <li><strong><NavLink to={'/faq'}>Հաճախ տրվող հարցեր</NavLink></strong></li>
+                        <li><strong><NavLink to={'/adresses'}>Կապ</NavLink></strong></li>
                     </ul>
                     <ul className='social'>
                         <li>
