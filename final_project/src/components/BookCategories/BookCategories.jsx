@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import './BookCategories.css';
 
-function BooksCategories() {
+function BooksCategories({ data }) {
+  console.log(data);
   return (
     <aside>
       <h1>Categories</h1>

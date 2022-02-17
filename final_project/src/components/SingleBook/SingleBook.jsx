@@ -1,13 +1,17 @@
+import { useSelector } from 'react-redux';
 import cart from '../../images/cart.svg';
 import heart from '../../images/heart.svg';
 import check from '../../images/check.svg';
 import './SingleBook.css';
+import { currentBookSelector } from '../../helpers/reduxSelectors';
 
 function SingleBook({ data }) {
-  const book = data.find((item) => item.isbn === localStorage.getItem('bookId'));
-  console.log('🚀 ~ file: SingleBook.jsx ~ line 8 ~ SingleBook ~ book', book);
+  const currentId = useSelector(currentBookSelector);
+  console.log('🚀 ~ file: BookList.jsx ~ line 17 ~ BookList ~ currentId', currentId);
+  const book = data.find((item) => item.isbn === currentId);
   const date = new Date(book.publishedDate.$date);
   const getNumber = (num) => (num < 10 ? `0${num}` : num);
+
   return (
     <div className="book-content">
       <div className="book-picture">

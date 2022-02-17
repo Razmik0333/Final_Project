@@ -1,13 +1,19 @@
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { currentBook } from '../../redux/ducks/bookDuck';
 
 import './BookList.css';
 
 function BookList({ data }) {
+  const dispatch = useDispatch();
   const pageCount = Math.floor(+data.length / 15) + 1;
   const handleId = (e) => {
     // e.preventDefault();
+    dispatch(currentBook(e.target.dataset.id));
+
     localStorage.setItem('bookId', e.target.dataset.id);
   };
+
   return (
     <div className="right-side">
       <nav className="filter-bar">
