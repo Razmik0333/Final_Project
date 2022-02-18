@@ -5,10 +5,10 @@ function Footer() {
   return (
     <div className="footer">
       <div className="container">
-        <div className="logo">
-          <a href="https://books.am/am">
-            <img src="https://books.am/media/logo/stores/1/main_logo.png" alt="logo" />
-          </a>
+        <div className="logo1">
+          <NavLink to="/">
+            <img className="logo" src="/icons/2815428.png" alt="logo" />
+          </NavLink>
           <ul className="menu_bar">
             <li><strong><NavLink to="/about">Մեր մասին</NavLink></strong></li>
             <li><strong><NavLink to="/news">Նորություններ</NavLink></strong></li>
@@ -16,7 +16,7 @@ function Footer() {
             <li><strong><NavLink to="/faq">Հաճախ տրվող հարցեր</NavLink></strong></li>
             <li><strong><NavLink to="/adresses">Կապ</NavLink></strong></li>
           </ul>
-          <ul className="social">
+          <ul className="social1">
             <li>
               <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
                 <img src="icons/facebook_icon.png" className="icon" alt="" />
@@ -29,18 +29,18 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <hr />
+      </div>
+      <hr />
+      <div className="container">
         <div className="copyrights">
           <span>
-            &copy;
-            {' '}
             {new Date().getFullYear()}
-            , &copy; «Բուկինիստ» ՍՊԸ |,
-            {' '}
+            , «Բուկինիստ» ՍՊԸ |,
           </span>
           <span>Բոլոր իրավունքները պահպանված են</span>
         </div>
       </div>
+
     </div>
   );
 }
