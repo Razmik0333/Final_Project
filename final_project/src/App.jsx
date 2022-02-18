@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import SingleBook from './components/SingleBook/SingleBook';
 import BookFromCategory from './components/BookFromCategory/BookFromCategory';
+import About from './components/About/About';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="book/:id"
           element={<SingleBook />}

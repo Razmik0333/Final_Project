@@ -5,7 +5,7 @@
     left: 0;
     position: fixed;
     padding-bottom: 10px;
-}
+} 
 
 .container {
     width: 100%;
@@ -65,9 +65,9 @@ a:hover {
 img {
     height: 30px;
     vertical-align: middle;
-}
+} 
 
-hr {
+ hr {
     margin: 0 40px 0 40px; 
 }
 
