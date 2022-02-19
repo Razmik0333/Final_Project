@@ -36,6 +36,9 @@
    .section-item{
      display: flex;
    }
+   .section-item img{
+     width: 150px;
+   }
    .section-item section{
      display: flex;
      flex-wrap: nowrap;

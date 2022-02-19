@@ -1,18 +1,80 @@
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { currentBook } from '../../redux/ducks/bookDuck';
-
+import { currentBook, currentPage } from '../../redux/ducks/bookDuck';
+import noImg from '../../images/no-image.png';
 import './BookList.css';
+import { currentCategorySelector, currentPageSelector } from '../../helpers/reduxSelectors';
+import { COUNT_BOOKS } from '../../helpers/constants';
+
+const getArrayCategories = (data, current) => data.reduce((acc, curr) => {
+  if (curr.categories.includes(current)) {
+    acc.push(curr);
+  }
+  return acc;
+}, []);
+const getPages = (data) => Math.ceil(+data.length / 15);
+const getStart = (count, page) => count * (page - 1);
+
+const getFinal = (count, curr, total) => (count * curr < total ? curr * count - 1 : total - 1);
+const arrayStartPage = (data, first, last) => data.filter((_, pos) => pos >= first && pos <= last);
 
 function BookList({ data }) {
+  const total = data.length;
   const dispatch = useDispatch();
-  const pageCount = Math.floor(+data.length / 15) + 1;
-  const handleId = (e) => {
-    // e.preventDefault();
-    dispatch(currentBook(e.target.dataset.id));
-
-    localStorage.setItem('bookId', e.target.dataset.id);
+  const handlePage = (e) => {
+    e.preventDefault();
+    dispatch(currentPage(e.target.dataset.page));
   };
+  const handleBookId = (e) => {
+    dispatch(currentBook(e.target.dataset.id));
+  };
+
+  const currCategory = useSelector(currentCategorySelector);
+
+  const curPage = useSelector(currentPageSelector);
+
+  const start = getStart(COUNT_BOOKS, curPage);
+
+  const finish = getFinal(COUNT_BOOKS, curPage, total);
+
+  const [booksData, setBooksData] = useState(data);
+  console.log('🚀 ~ file: BookList.jsx ~ line 42 ~ BookList ~ booksData', booksData);
+  const [pageCount, setPageCount] = useState(null);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      const arr = arrayStartPage(data, start, finish);
+      setBooksData(arr);
+      setPageCount(getPages(data));
+    }, 400);
+    return () => {
+      clearTimeout(id);
+    };
+  }, [data.length]);
+  useEffect(() => {
+    const id = setTimeout(() => {
+      const changeArray = currCategory === null ? data : getArrayCategories(data, currCategory);
+      const arr = arrayStartPage(changeArray, start, finish);
+      setPageCount(getPages(changeArray));
+      setBooksData(arr);
+    }, 300);
+    return () => {
+      clearTimeout(id);
+    };
+  }, [curPage]);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      const filterByCategory = getArrayCategories(data, currCategory);
+      dispatch(currentPage(1));
+      setBooksData(arrayStartPage(filterByCategory, start, finish));
+      setPageCount(getPages(filterByCategory));
+    }, 400);
+    return () => {
+      clearTimeout(id);
+    };
+  }, [currCategory]);
 
   return (
     <div className="right-side">
@@ -25,29 +87,29 @@ function BookList({ data }) {
       <main className="book-list">
         <article>
           {
-          data.map((item) => (
-            <NavLink className="section-item" onClick={handleId} to={`book/${item.isbn}`}>
-              <section>
-                <img src={item.thumbnailUrl} data-id={item.isbn} alt="" />
-                <p className="book-title">
-                  <span>
-                    {item.title}
-                  </span>
-                </p>
-                <p className="book-cost">
-                  {item.pageCount * 10}
-                  &#1423;
-                </p>
-              </section>
-            </NavLink>
-          ))
+            booksData.map((item) => (
+              <NavLink className="section-item" onClick={handleBookId} to={`/book/${item.isbn}`}>
+                <section>
+                  <img src={item.thumbnailUrl !== undefined ? item.thumbnailUrl : noImg} data-id={item.isbn} alt="" />
+                  <p className="book-title">
+                    <span>
+                      {item.title}
+                    </span>
+                  </p>
+                  <p className="book-cost">
+                    {item.pageCount * 10}
+                    &#1423;
+                  </p>
+                </section>
+              </NavLink>
+            ))
           }
 
         </article>
         <nav className="pagination">
           <ul className="pages">
             {
-              data.map((_, page) => (page < pageCount ? <li className="page"><NavLink to={`/page/${page + 1}`}>{page + 1}</NavLink></li> : false))
+              data.map((_, page) => ((page > 0 && page <= pageCount) ? <li className="page"><NavLink onClick={handlePage} data-page={page} to={`/page/${page}`}>{page}</NavLink></li> : false))
             }
           </ul>
         </nav>

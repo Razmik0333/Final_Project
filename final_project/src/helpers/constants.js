@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 export const colors = [
   'black',
   'red',
@@ -6,7 +5,7 @@ export const colors = [
   'purple',
   'brown',
 ];
-
+export const COUNT_BOOKS = 15;
 export const colorTarget = [
   {
     target: 'nameColor',

@@ -7,11 +7,9 @@ import { currentBookSelector } from '../../helpers/reduxSelectors';
 
 function SingleBook({ data }) {
   const currentId = useSelector(currentBookSelector);
-  console.log('🚀 ~ file: BookList.jsx ~ line 17 ~ BookList ~ currentId', currentId);
   const book = data.find((item) => item.isbn === currentId);
   const date = new Date(book.publishedDate.$date);
   const getNumber = (num) => (num < 10 ? `0${num}` : num);
-
   return (
     <div className="book-content">
       <div className="book-picture">

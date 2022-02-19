@@ -16,15 +16,15 @@ function App() {
   return (
     <div className="container">
       <Routes>
-        <Route path="" element={<Home data={data} />} />
         <Route
-          path="book/:id"
+          path="/book/:id"
           element={<SingleBook data={data} />}
         />
         <Route
-          path="category/:id"
-          element={<BookFromCategory />}
+          path="/category/:id"
+          element={<BookFromCategory data={data} />}
         />
+        <Route path="/" element={<Home data={data} />} />
       </Routes>
     </div>
   );
