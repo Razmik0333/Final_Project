@@ -1,0 +1,133 @@
+.book-content{
+     display: flex;
+     border: 1px solid #d6d6d6;
+}
+.book-desc{
+     padding: 20px 50px 20px 40px;
+     display: flex;
+    flex-direction: column;
+}
+.book-picture img{
+     width: 250px;
+}
+.book-head{
+     font-size: 40px;
+     font-family: 'SegoeWP';
+     font-weight: 100;
+     padding: 30px 0;
+     color:#595959;
+}
+.book-authors{
+     font-size: 20px;
+     font-family: 'SegoeWP';
+     font-weight: 100;
+     padding: 10px 0;
+     color:#595959;
+     list-style-type:disc ;
+     margin-left: 20px;
+}
+.book-authors li{
+     margin-top: 10px;
+}
+.book-text{
+     font-family:'SegoeWPN';
+     line-height: 25px;
+     color: #7e7e7e;
+
+}
+.book-count{
+     width: 80%;
+     border: 1px solid #d6d6d6;
+     margin: 0 auto;
+     text-align: center;
+     transition: all 2s ease-in ;
+}
+.count{
+     border: 2px solid #d6d6d6;
+     width: 100px;
+     height: 20px;
+     text-align: center;
+
+}
+.count:focus-visible{
+     border: 2px solid #6e6262;
+}
+.desc-section{
+     width: 30%;
+     padding: 20px;
+}
+.cart-section{
+     width: 30%;
+    border: 1px solid #d6d6d6;
+    margin: 20px 60px;
+}
+.desc-cart-section{
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     align-items: flex-start;
+     justify-content: center;
+     align-content: center;
+}
+.description li{
+     border: 1px solid #7e7e7e;
+     text-align: center;
+     padding: 10px 15px;
+     width: 100%;
+}
+.description span{
+     padding:5px ;
+}
+.description {
+     display: flex;
+     flex-direction: column;
+}
+
+.add-cart{
+     width: 120px;
+     height: 40px;
+     background-color: #E88848;
+     border-radius: 5px;
+     color: #fff;
+     border: 2px solid #fff;
+     cursor: pointer;
+}
+.add-cart:hover{
+     background-color: #e0a781;
+}
+.heart{
+     fill: #E88848;
+}
+
+.favorite{
+     width: 50px;
+     vertical-align: bottom;
+     margin-left: 10px;
+}
+.add-cart span{
+     margin-right: 10px;
+     vertical-align: super;
+}
+.check{
+     width: 20px;
+}
+
+.add:hover, .sub:hover{
+     color: #e0a781;
+}
+.add, .sub{
+     padding: 6px;
+     cursor: pointer;
+     color: #E88848;
+}
+.available span{
+     margin-left: 10px;
+    font-weight: 300;
+    vertical-align: super;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.price{
+     color: #E88848;
+     font-weight: 300;
+}

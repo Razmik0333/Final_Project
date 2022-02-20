@@ -10,13 +10,12 @@ export const changeLanguage = (payload) => ({
   payload,
 });
 
-const initialState = {
+const initialStateApp = {
   language: 'en',
   route: '',
 };
 
-// eslint-disable-next-line default-param-last
-const AppDuck = (state = initialState, action) => {
+const AppDuck = (state = initialStateApp, action) => {
   switch (action.type) {
     case CHANGE_ROUTE:
       return {
