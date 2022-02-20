@@ -66,7 +66,7 @@ function SingleBook({ data }) {
                 <span>Գնել</span>
                 <img src={cart} alt="" />
               </button>
-              <img className="favorite" src={heart} alt="" />
+              <img className="favorite" src={heart} alt={book.title} />
             </p>
             <p className="available">
               <img src={check} className="check" alt="" />
