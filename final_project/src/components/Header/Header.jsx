@@ -3,11 +3,11 @@ import SearchBar from './headerCompontnts/SearchBar/SearchBar';
 // import './Header.css';
 // import { NavLink } from "react-router-dom"
 
-function Header() {
+function Header({ data }) {
   return (
     <>
-      <NavBar />
-      <SearchBar />
+      <NavBar data={data} />
+      <SearchBar data={data} />
     </>
   );
 }
