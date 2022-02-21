@@ -21,6 +21,7 @@ const arrayStartPage = (data, first, last) => data.filter((_, pos) => pos >= fir
 
 function BookList({ data }) {
   const total = data.length;
+  console.log('🚀 ~ file: BookList.jsx ~ line 24 ~ BookList ~ total', total);
   const dispatch = useDispatch();
   const handlePage = (e) => {
     e.preventDefault();
