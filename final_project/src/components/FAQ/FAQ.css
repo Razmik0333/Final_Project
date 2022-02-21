@@ -1,0 +1,18 @@
+h2 {
+    font-size: 23px;
+     padding-left: 15px;
+}
+
+li {
+    list-style-type: disc;
+    font-size: 15px;
+}
+
+.faq_list {
+    padding: 20px 0 0 0;
+}
+
+.delivery span {
+    font-size: 18px;
+    padding-left: 15px;
+}

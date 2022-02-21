@@ -1,0 +1,23 @@
+.adress {
+   padding-left: 30px; 
+   padding-top: 100px;
+}
+
+.information {
+    display: inline-block;
+    width: 57%;
+    padding-left: 30px;
+}
+
+.contacts {
+    float: right;
+    padding-right: 50px;
+}
+
+h2 {
+    padding-left: 15px;
+}
+
+p {
+    font-size: 18px;
+}
