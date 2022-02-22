@@ -18,18 +18,26 @@ function SearchBar({ data }) {
   }
 
   useEffect(() => () => {
-    filteredData();
+    const id = setTimeout(() => filteredData(), 200);
+    return (
+      clearTimeout(id));
   }, [filterInputValue, data]);
 
   const handleId = (e) => {
     // e.preventDefault();
     dispatch(currentBook(e.target.dataset.id));
-
-    localStorage.setItem('bookId', e.target.dataset.id);
+    console.log('currentBook', currentBook(e.target.dataset.id));
+    // localStorage.setItem('bookId', e.target.dataset.id);
   };
 
   const handleInputValue = (e) => {
     setFilterInputValue(e.target.value);
+  };
+
+  const handelInputEnter = (e) => {
+    if (e.key === 'enter') {
+      console.log(e.key);
+    }
   };
 
   return (
@@ -45,6 +53,7 @@ function SearchBar({ data }) {
             <input
               value={filterInputValue}
               onChange={handleInputValue}
+              onKeyPress={handelInputEnter}
               className="input_button"
               type="text"
               placeholder="Որոնել"
@@ -79,24 +88,24 @@ function SearchBar({ data }) {
           </div>
         </div>
       </div>
-
-      {filteredMessages.map((item) => (
-        <NavLink className="section-item" onClick={handleId} to={`book/${item.isbn}`}>
-          <section>
-            <img src={item.thumbnailUrl} data-id={item.isbn} alt="" />
-            <p className="book-title">
-              <span>
-                {item.title}
-              </span>
-            </p>
-            <p className="book-cost">
-              {item.pageCount * 10}
-              &#1423;
-            </p>
-          </section>
-        </NavLink>
-      ))}
-
+      <div className="container">
+        {filteredMessages.map((item) => (
+          <NavLink className="section-item" onClick={handleId} to={`book/${item.isbn}`}>
+            <section>
+              <img src={item.thumbnailUrl} data-id={item.isbn} alt="" />
+              <p className="book-title">
+                <span>
+                  {item.title}
+                </span>
+              </p>
+              {/* <p className="book-cost">
+                      {item.pageCount * 10}
+                        &#1423;
+                      </p> */}
+            </section>
+          </NavLink>
+        ))}
+      </div>
     </>
   );
 }
