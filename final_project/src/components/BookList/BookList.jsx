@@ -16,7 +16,7 @@ const getArrayCategories = (data, current) => data.reduce((acc, curr) => {
 
 const getNewestArray = (data) => (data.sort((a, b) => a.publishedDate.date - b.publishedDate.date));
 const getSortedByPriceArray = (data) => (data.sort((a, b) => a.pageCount * 10 - b.pageCount * 10));
-const getPages = (data) => Math.ceil(+data.length / 15);
+const getPages = (data) => Math.ceil(data.length / 15);
 const getStart = (count, page) => count * (page - 1);
 
 const getFinal = (count, curr, total) => (count * curr < total ? curr * count - 1 : total - 1);

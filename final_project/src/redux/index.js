@@ -5,6 +5,7 @@ import BookDuck from './ducks/bookDuck';
 
 const rootReducer = combineReducers({
   AppDuck,
+  BookDuck,
   ConfigsDuck,
   BookDuck,
 });
