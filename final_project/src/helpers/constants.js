@@ -5,6 +5,16 @@ export const colors = [
   'purple',
   'brown',
 ];
+export const filters = [
+  {
+    alias: 'newest',
+    arm: 'Թարմության',
+  },
+  {
+    alias: 'price',
+    arm: 'Գնի',
+  },
+];
 export const COUNT_BOOKS = 15;
 export const colorTarget = [
   {

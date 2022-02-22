@@ -20,7 +20,7 @@ function BooksCategories({ data }) {
   return (
     <aside>
       <h1>Categories</h1>
-      <h1 className="all">All</h1>
+      <NavLink to="/"><h1 className="all">All</h1></NavLink>
       <p>Fiction & Literature</p>
       <ul className="categories">
         {

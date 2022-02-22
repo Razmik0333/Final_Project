@@ -24,6 +24,10 @@ function App() {
           path="/category/:id"
           element={<BookFromCategory data={data} />}
         />
+        <Route
+          path="/filter/:id"
+          element={<BookFromCategory data={data} />}
+        />
         <Route path="/" element={<Home data={data} />} />
       </Routes>
     </div>

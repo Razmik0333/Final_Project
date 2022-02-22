@@ -5,7 +5,7 @@ import { currentBook, currentPage } from '../../redux/ducks/bookDuck';
 import noImg from '../../images/no-image.png';
 import './BookList.css';
 import { currentCategorySelector, currentPageSelector } from '../../helpers/reduxSelectors';
-import { COUNT_BOOKS } from '../../helpers/constants';
+import { COUNT_BOOKS, filters } from '../../helpers/constants';
 
 const getArrayCategories = (data, current) => data.reduce((acc, curr) => {
   if (curr.categories.includes(current)) {
@@ -13,16 +13,35 @@ const getArrayCategories = (data, current) => data.reduce((acc, curr) => {
   }
   return acc;
 }, []);
+
+const getNewestArray = (data) => (data.sort((a, b) => a.publishedDate.date - b.publishedDate.date));
+const getSortedByPriceArray = (data) => (data.sort((a, b) => a.pageCount * 10 - b.pageCount * 10));
 const getPages = (data) => Math.ceil(+data.length / 15);
 const getStart = (count, page) => count * (page - 1);
 
 const getFinal = (count, curr, total) => (count * curr < total ? curr * count - 1 : total - 1);
 const arrayStartPage = (data, first, last) => data.filter((_, pos) => pos >= first && pos <= last);
 
+const getFilteredArray = (data, filterType) => {
+  switch (filterType) {
+    case 'price':
+      return getSortedByPriceArray(data);
+    case 'newest':
+      return getNewestArray(data);
+    default:
+      return data;
+  }
+};
+
 function BookList({ data }) {
   const total = data.length;
-  console.log('🚀 ~ file: BookList.jsx ~ line 24 ~ BookList ~ total', total);
   const dispatch = useDispatch();
+  const [booksData, setBooksData] = useState(data);
+
+  const [pageCount, setPageCount] = useState(null);
+  const [filterAlias, setFilterAlias] = useState('');
+  console.log('🚀 ~ file: BookList.jsx ~ line 43 ~ BookList ~ filterAlias1', filterAlias);
+
   const handlePage = (e) => {
     e.preventDefault();
     dispatch(currentPage(e.target.dataset.page));
@@ -30,6 +49,7 @@ function BookList({ data }) {
   const handleBookId = (e) => {
     dispatch(currentBook(e.target.dataset.id));
   };
+  const handleFilter = (e) => setFilterAlias(e.target.dataset.filter);
 
   const currCategory = useSelector(currentCategorySelector);
 
@@ -38,10 +58,6 @@ function BookList({ data }) {
   const start = getStart(COUNT_BOOKS, curPage);
 
   const finish = getFinal(COUNT_BOOKS, curPage, total);
-
-  const [booksData, setBooksData] = useState(data);
-  console.log('🚀 ~ file: BookList.jsx ~ line 42 ~ BookList ~ booksData', booksData);
-  const [pageCount, setPageCount] = useState(null);
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -53,6 +69,21 @@ function BookList({ data }) {
       clearTimeout(id);
     };
   }, [data.length]);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      const filteredArray = getFilteredArray(data, filterAlias);
+      console.log('🚀 ~ file: BookList.jsx ~ line 43 ~ BookList ~ filterAlias2', filterAlias);
+
+      console.log('🚀 ~ file: BookList.jsx ~ line 76 ~ id ~ filteredArray', filteredArray);
+      const arr = arrayStartPage(filteredArray, start, finish);
+      setBooksData(arr);
+      setPageCount(getPages(data));
+    }, 300);
+    return () => {
+      clearTimeout(id);
+    };
+  }, [filterAlias.length]);
   useEffect(() => {
     const id = setTimeout(() => {
       const changeArray = currCategory === null ? data : getArrayCategories(data, currCategory);
@@ -80,10 +111,9 @@ function BookList({ data }) {
   return (
     <div className="right-side">
       <nav className="filter-bar">
-        <NavLink className="filter-items active-filter" to="/best_sellers">Best sellers</NavLink>
-        <NavLink className="filter-items" to="/new_arrivals">New Arrivals</NavLink>
-        <NavLink className="filter-items" to="/used_books">Used Books</NavLink>
-        <NavLink className="filter-items" to="/special_offers">Special Offers</NavLink>
+        {
+          filters.map((filter) => <NavLink onClick={handleFilter} className="filter-items active-filter" data-filter={`${filter.alias}`} to={`/filter/${filter.alias}`}>{filter.arm}</NavLink>)
+        }
       </nav>
       <main className="book-list">
         <article>

@@ -1,41 +1,40 @@
-"use strict";
+// Object.defineProperty(exports, '__esModule', {
+//   value: true,
+// });
+// eslint-disable-next-line max-len
+// exports.currentPageSelector = exports.currentCategorySelector = exports.currentBookSelector = exports.bookSelector = exports.configSelector = void 0;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.currentPageSelector = exports.currentCategorySelector = exports.currentBookSelector = exports.bookSelector = exports.configSelector = void 0;
+// const configSelector = function configSelector(_ref) {
+//   const { ConfigsDuck } = _ref;
+//   return ConfigsDuck;
+// };
 
-var configSelector = function configSelector(_ref) {
-  var ConfigsDuck = _ref.ConfigsDuck;
-  return ConfigsDuck;
-};
+// exports.configSelector = configSelector;
 
-exports.configSelector = configSelector;
+// const bookSelector = function bookSelector(_ref2) {
+//   const { BookDuck } = _ref2;
+//   return BookDuck.books;
+// };
 
-var bookSelector = function bookSelector(_ref2) {
-  var BookDuck = _ref2.BookDuck;
-  return BookDuck.books;
-};
+// exports.bookSelector = bookSelector;
 
-exports.bookSelector = bookSelector;
+// const currentBookSelector = function currentBookSelector(_ref3) {
+//   const { BookDuck } = _ref3;
+//   return BookDuck.bookID;
+// };
 
-var currentBookSelector = function currentBookSelector(_ref3) {
-  var BookDuck = _ref3.BookDuck;
-  return BookDuck.bookID;
-};
+// exports.currentBookSelector = currentBookSelector;
 
-exports.currentBookSelector = currentBookSelector;
+// const currentCategorySelector = function currentCategorySelector(_ref4) {
+//   const { BookDuck } = _ref4;
+//   return BookDuck.categoryID;
+// };
 
-var currentCategorySelector = function currentCategorySelector(_ref4) {
-  var BookDuck = _ref4.BookDuck;
-  return BookDuck.categoryID;
-};
+// exports.currentCategorySelector = currentCategorySelector;
 
-exports.currentCategorySelector = currentCategorySelector;
+// const currentPageSelector = function currentPageSelector(_ref5) {
+//   const { BookDuck } = _ref5;
+//   return BookDuck.currentPage;
+// };
 
-var currentPageSelector = function currentPageSelector(_ref5) {
-  var BookDuck = _ref5.BookDuck;
-  return BookDuck.currentPage;
-};
-
-exports.currentPageSelector = currentPageSelector;
+// exports.currentPageSelector = currentPageSelector;
