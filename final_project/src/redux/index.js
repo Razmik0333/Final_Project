@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
   AppDuck,
   BookDuck,
   ConfigsDuck,
+  BookDuck,
 });
 
 export default rootReducer;

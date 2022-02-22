@@ -39,7 +39,7 @@
         "import/prefer-default-export": "off",
         "react/prop-types": "off",
         "prettier.endOfLine": 0,
-        "files.eol": 0,
-        "default-param-last" : "off"
+        "default-param-last" : "off",
+        "files.eol": 0
     }
 }
