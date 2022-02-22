@@ -1,6 +1,6 @@
 .adress {
    padding-left: 30px; 
-   padding-top: 100px;
+   padding-top: 140px;
 }
 
 .information {
@@ -12,12 +12,15 @@
 .contacts {
     float: right;
     padding-right: 50px;
+    color: #8c1e32;
 }
 
-h2 {
-    padding-left: 15px;
+.adress h2 {
+    padding-left: 5px;
+    color: #8c1e32;
 }
 
-p {
+.contacts p {
     font-size: 18px;
+    font-weight: bold;
 }

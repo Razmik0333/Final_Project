@@ -15,7 +15,6 @@ function About() {
          
          <div className='image'>
            <img src='/icons/books.jpg' className='image'></img>
-         
          </div>
      </div>
 

@@ -1,18 +1,31 @@
-h2 {
+.lists h2 {
     font-size: 23px;
-     padding-left: 15px;
+      text-align: center;
 }
 
-li {
-    list-style-type: disc;
+ul.order {
     font-size: 15px;
+  display: inline-block;
+  text-align: left;
+}
+ul.order li{
+     /* list-style-type: disc; */
+    padding-bottom: 10px;
 }
 
-.faq_list {
-    padding: 20px 0 0 0;
+.image_library .library {
+    width: 70%;
+    height: 200px;
+    display: block;
 }
 
-.delivery span {
-    font-size: 18px;
-    padding-left: 15px;
+/* .lists {
+    text-align: center;
+
+} */
+
+.lists {
+     text-align: center;
 }
+
+

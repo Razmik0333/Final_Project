@@ -6,9 +6,9 @@ function Footer() {
         <div className="footer">
             <div className='container'>
                 <div className='logo'>
-                    <a href='https://books.am/am'>
+                    {/* <a href='https://books.am/am'>
                         <img src="https://books.am/media/logo/stores/1/main_logo.png" alt="logo" />
-                    </a>
+                    </a> */}
 
                     <ul className='menu_bar'>
                         <li><strong><NavLink to={'/about'}>Մեր մասին</NavLink></strong></li>
