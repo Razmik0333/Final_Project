@@ -6,13 +6,16 @@ aside h1, p{
     padding: 10px 20px;
     font-family: "SegoeWP";
     font-weight: 600;
+    font-size: 15px;
 }
 
-aside ul li{
+.category{
     padding: 10px 15px;
     font-family: "Segoe UI Symbol";
     border-bottom: 1px solid #e6e7e8;
     font-size: 15px;
+    margin: 0;
+    display: block;
 }
 
 .all{
