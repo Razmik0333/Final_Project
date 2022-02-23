@@ -8,11 +8,15 @@ export const colors = [
 export const filters = [
   {
     alias: 'newest',
-    arm: 'Թարմության',
+    arm: 'Թարմություն',
   },
   {
     alias: 'price',
-    arm: 'Գնի',
+    arm: 'Գին',
+  },
+  {
+    alias: 'name',
+    arm: 'Անվանում',
   },
 ];
 export const COUNT_BOOKS = 15;

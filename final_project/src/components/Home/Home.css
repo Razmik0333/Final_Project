@@ -1,13 +1,10 @@
-.container{
-     width: 80%;
-     height: auto;
-     margin: 0 auto;
-}
+
 .content{
-     width: 100%;
+     width: 80%;
      height: auto;
      background-color: #fff;
      display: flex;
      flex-wrap: nowrap;
      flex-direction: row;
+     margin: 0 auto;
 }

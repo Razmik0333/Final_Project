@@ -13,8 +13,23 @@ const getArrayCategories = (data, current) => data.reduce((acc, curr) => {
   }
   return acc;
 }, []);
+const getSortedByNewestArray = (data) => (data.sort((a, b) => {
+  const dateA = new Date(a.publishedDate.$date);
+  const dateB = new Date(b.publishedDate.$date);
+  return dateA - dateB;
+}));
 
-const getNewestArray = (data) => (data.sort((a, b) => a.publishedDate.date - b.publishedDate.date));
+const getSortedByNameArray = (data) => (data.sort((a, b) => {
+  const titleA = a.title.toLowerCase();
+  const titleB = b.title.toLowerCase();
+  if (titleA < titleB) {
+    return -1;
+  }
+  if (titleA > titleB) {
+    return 1;
+  }
+  return 0;
+}));
 const getSortedByPriceArray = (data) => (data.sort((a, b) => a.pageCount * 10 - b.pageCount * 10));
 const getPages = (data) => Math.ceil(data.length / 15);
 const getStart = (count, page) => count * (page - 1);
@@ -26,8 +41,10 @@ const getFilteredArray = (data, filterType) => {
   switch (filterType) {
     case 'price':
       return getSortedByPriceArray(data);
+    case 'name':
+      return getSortedByNameArray(data);
     case 'newest':
-      return getNewestArray(data);
+      return getSortedByNewestArray(data);
     default:
       return data;
   }

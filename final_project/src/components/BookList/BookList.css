@@ -4,6 +4,7 @@ nav{
 .right-side{
   width: 80%;
   margin-left: 9px;
+  border: 1px solid #d6d6d6;
 }
 .filter-items {
   font-family: 'Helvetica LT Std Light';
@@ -22,7 +23,6 @@ nav{
 .book-list {
   padding: 20px 0;
   margin-top: 10px;
-  border: 1px solid #d6d6d6;
   height: 1025px;
   transition: box-shadow 1s ease;
 }
@@ -102,5 +102,6 @@ nav{
   text-decoration: none;
   padding: 10px 20px;
   color: #6b6969;
+  margin-left: 5px;
 }
    
