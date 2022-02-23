@@ -12,7 +12,7 @@ function Footer() {
           <ul className="menu_bar">
             <li><strong><NavLink to="/about">Մեր մասին</NavLink></strong></li>
             <li><strong><NavLink to="/news">Նորություններ</NavLink></strong></li>
-            <li><strong><NavLink to="/policy">Ինչպես պատվիրել</NavLink></strong></li>
+            {/* <li><strong><NavLink to="/policy">Ինչպես պատվիրել</NavLink></strong></li> */}
             <li><strong><NavLink to="/faq">Հաճախ տրվող հարցեր</NavLink></strong></li>
             <li><strong><NavLink to="/adresses">Կապ</NavLink></strong></li>
           </ul>

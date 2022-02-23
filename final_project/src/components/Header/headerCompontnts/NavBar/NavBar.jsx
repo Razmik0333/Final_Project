@@ -24,10 +24,10 @@ function NavBar() {
           </div>
         </div>
         <div className="navigation">
-          <NavLink to="/books"> Գրքեր </NavLink>
           <NavLink to="/about"> Մեր մասին </NavLink>
           <NavLink to="/news"> Նորություններ </NavLink>
-          <NavLink to="/blog"> Բլոգ </NavLink>
+          <NavLink to="/faq"> Հաճախ տրվող հարցեր </NavLink>
+          {/* <NavLink to="/blog"> Բլոգ </NavLink> */}
         </div>
         <div className=" selected">
           <select className="select" name="change" id="change">

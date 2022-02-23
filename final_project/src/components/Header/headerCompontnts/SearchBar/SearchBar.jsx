@@ -6,7 +6,7 @@ import { currentBook } from '../../../../redux/ducks/bookDuck';
 function SearchBar({ data }) {
   // const inputRef = useRef(null);
   const dispatch = useDispatch();
-  const [filteredMessages, setFilteredMessages] = useState([]);
+  const [filteredDate, setFilteredDate] = useState([]);
   const [filterInputValue, setFilterInputValue] = useState('');
 
   function filteredData() {
@@ -14,7 +14,7 @@ function SearchBar({ data }) {
       .filter((item) => item.title
         .includes(filterInputValue))
       .map((item) => item);
-    setFilteredMessages(filterData);
+    setFilteredDate(filterData);
   }
 
   useEffect(() => () => {
@@ -89,22 +89,28 @@ function SearchBar({ data }) {
         </div>
       </div>
       <div className="container">
-        {filteredMessages.map((item) => (
-          <NavLink className="section-item" onClick={handleId} to={`book/${item.isbn}`}>
-            <section>
-              <img src={item.thumbnailUrl} data-id={item.isbn} alt="" />
-              <p className="book-title">
-                <span>
-                  {item.title}
-                </span>
-              </p>
-              {/* <p className="book-cost">
+        <NavLink
+          className="container"
+          to="/searching"
+        >
+          {filteredDate.map((item) => (
+            <NavLink className="section-item" onClick={handleId} to={`book/${item.isbn}`}>
+              <section>
+                <img src={item.thumbnailUrl} data-id={item.isbn} alt="" />
+                <p className="book-title">
+                  <span>
+                    {item.title}
+                  </span>
+                </p>
+                {/* <p className="book-cost">
                       {item.pageCount * 10}
                         &#1423;
                       </p> */}
-            </section>
-          </NavLink>
-        ))}
+              </section>
+            </NavLink>
+          ))}
+        </NavLink>
+
       </div>
     </>
   );

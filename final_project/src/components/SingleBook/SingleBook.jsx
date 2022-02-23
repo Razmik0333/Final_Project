@@ -1,17 +1,15 @@
 import { useSelector } from 'react-redux';
-// import cart from '../../images/cart.svg';
-// import heart from '../../images/heart.svg';
-// import check from '../../images/check.svg';
+import cart from '../../images/cart.svg';
+import heart from '../../images/heart.svg';
+import check from '../../images/check.svg';
 import './SingleBook.css';
 import { currentBookSelector } from '../../helpers/reduxSelectors';
 
 function SingleBook({ data }) {
   const currentId = useSelector(currentBookSelector);
-  // console.log('🚀 ~ file: BookList.jsx ~ line 17 ~ BookList ~ currentId', currentId);
   const book = data.find((item) => item.isbn === currentId);
   const date = new Date(book.publishedDate.$date);
   const getNumber = (num) => (num < 10 ? `0${num}` : num);
-
   return (
     <div className="book-content">
       <div className="book-picture">
@@ -66,12 +64,12 @@ function SingleBook({ data }) {
             <p>
               <button className="add-cart" type="button">
                 <span>Գնել</span>
-                {/* <img src={cart} alt="" /> */}
+                <img src={cart} alt="" />
               </button>
-              {/* <img className="favorite" src={heart} alt="" /> */}
+              <img className="favorite" src={heart} alt={book.title} />
             </p>
             <p className="available">
-              {/* <img src={check} className="check" alt="" /> */}
+              <img src={check} className="check" alt="" />
               <span>Առկա է</span>
             </p>
           </section>

@@ -1,13 +1,22 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  src:local("Helvetica LT Std Light"), url("../src/fonts/Helvetica\ LT\ Std\ Light.otf") format("truetype");
+  font-family: "Helvetica LT Std Light";
+}
+@font-face {
+  src:local("HelveticaLTStd-Roman"), url("../src/fonts/HelveticaLTStd-Roman.otf") format("truetype");
+  font-family: "HelveticaLTStd-Roman";
+}
+@font-face {
+  src:local("SegoeWP"), url("../src/fonts/SegoeWP.ttf") format("truetype");
+  font-family: "SegoeWP";
+}
+@font-face {
+  src:local("SegoeWPN"), url("../src/fonts/SegoeWPN.ttf") format("truetype");
+  font-family: "SegoeWPN";
+}
+@font-face {
+  src:local("Simplo W90 Caps DEMO"), url("../src/fonts/Simplo\ W90\ Caps\ DEMO.ttf") format("truetype");
+  font-family: "Simplo W90 Caps DEMO";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+

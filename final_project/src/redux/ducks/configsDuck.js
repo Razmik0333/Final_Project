@@ -12,18 +12,18 @@ export const changeTarget = (payload) => ({
   payload,
 });
 
-export const fetchMessages = () => (dispatch) => {
+export const fetchMessages = (/* payload */) => (dispatch) => {
   fetch('url')
     .then((res) => res.json())
-    .then(() => dispatch(changeColor('black')));
+    .then((res) => dispatch(changeColor(res)));
 };
 
-const initialState = {
+const initialStateConfigs = {
   color: colors[0],
   target: colorTarget[0].target,
 };
 
-const ConfigsDuck = (state = initialState, { type, payload }) => {
+const ConfigsDuck = (state = initialStateConfigs, { type, payload }) => {
   switch (type) {
     case CHANGE_COLOR:
       return {
