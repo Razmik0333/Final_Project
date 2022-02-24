@@ -1,17 +1,24 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import cart from '../../images/cart.svg';
 import heart from '../../images/heart.svg';
 import check from '../../images/check.svg';
 import './SingleBook.css';
-import { currentBookSelector } from '../../helpers/reduxSelectors';
+import { bookSelector, currentBookSelector } from '../../helpers/reduxSelectors';
+import { fetchBooks } from '../../redux/ducks/bookDuck';
 
-function SingleBook({ data }) {
+function SingleBook() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
+  const data = useSelector(bookSelector);
   const currentId = useSelector(currentBookSelector);
   const book = data.find((item) => item.isbn === currentId);
   const date = new Date(book.publishedDate.$date);
   const getNumber = (num) => (num < 10 ? `0${num}` : num);
   return (
-    <div className="content">
+    <div className="container">
       <div className="book-content">
         <div className="book-picture">
           <section>
