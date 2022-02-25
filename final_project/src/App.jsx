@@ -5,6 +5,11 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import SingleBook from './components/SingleBook/SingleBook';
 import BookFromCategory from './components/BookFromCategory/BookFromCategory';
+import About from './components/About/About';
+import News from './components/News/News';
+import Policy from './components/Policy/Policy';
+import Adresses from './components/Adresses/Adresses';
+
 import { fetchBooks } from './redux/ducks/bookDuck';
 import { bookSelector } from './helpers/reduxSelectors';
 import Login from './components/Login/Login';
@@ -25,6 +30,11 @@ function App() {
         <Route path="" element={<Home data={data} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/policy" element={<Policy />} />
+        <Route path="/adresses" element={<Adresses />} />
+
         <Route
           path="book/:id"
           element={<SingleBook data={data} />}
