@@ -1,21 +1,31 @@
-
 import './Adresses.css';
 
 function Adresses() {
   return (
-<div className="adresses">
-    <div className="adress">
-      <h2>Հետադարձ կապ</h2>
+    <div className="adresses">
+      <div className="container">
+        <div className="adress">
+          <h3>Հետադարձ կապ</h3>
+          <span>
+            Եթե որևէ խնդիր կամ հարց ունեք կապված մեր ծառայությունների և դրանց որակի
+            <br />
+            հետ, լավագույն տարբերակը մեզ հետ կապ պահպանելու` դա սոցիալական էջերն են։
+            <br />
+            Մենք ողջունում ենք ցանկացած հարց, մեկնաբանություն կամ առաջարկություն և
+            <br />
+            կարձագանքենք առավելագույնս արագ։
+          </span>
+        </div>
+        <div className="contacts">
+          <h5>
+            Հեռ: +374 99 112233
+            <br />
+            Էլ. փոստ: info@bookstore.am
+          </h5>
+        </div>
       </div>
-         <div className="information">
-         <p>Եթե որևէ խնդիր կամ հարց ունեք կապված մեր ծառայությունների և դրանց որակի հետ, լավագույն տարբերակը մեզ հետ կապ պահպանելու` դա սոցիալական էջերն են։ Մենք ողջունում ենք ցանկացած հարց, մեկնաբանություն կամ առաջարկություն և կարձագանքենք առավելագույնս արագ։</p>
-         </div>
-         <div className="contacts">
-         <p>Հեռ: +374 99 112233</p>
-         <p>Էլ. փոստ: info@bookstore.am</p>
-</div>
-</div>
-  )
+    </div>
+  );
 }
 
 export default Adresses;

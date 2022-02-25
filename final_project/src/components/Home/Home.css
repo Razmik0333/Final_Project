@@ -1,0 +1,10 @@
+
+.content{
+     width: 80%;
+     height: auto;
+     background-color: #fff;
+     display: flex;
+     flex-wrap: nowrap;
+     flex-direction: row;
+     margin: 0 auto;
+}

@@ -1,7 +1,7 @@
 .about {
     display: flex;
     background-color: gray;
-    height: 400px;   
+    height: 402px;   
 }
 
 .title {
@@ -10,23 +10,21 @@
     font-weight: 800;
     padding: 30px;
     text-transform: uppercase;
-    padding-top: 50px;
+    padding-top: 34px;
     width: 50%;   
 }
 
-.info_description{
+.info_description p {
     color: white;
     display: inline-block;
-    width: 80%;
-    padding-top: 20px;
+    width: 100%;
     padding-left: 30px;
+    font-family: 'Verdana-Italic';
+    font-size: 17px;
 }
 
 .image {
-    width: 730px;
-    height: 400px;
+    width: 650px;
+    height: 402px;
     float: right;
 }
-
-
-

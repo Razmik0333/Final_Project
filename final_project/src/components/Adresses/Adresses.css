@@ -1,26 +1,29 @@
-.adress {
-   padding-left: 30px; 
-   padding-top: 140px;
+.adresses {
+    display: flex;
 }
 
-.information {
-    display: inline-block;
-    width: 57%;
-    padding-left: 30px;
+.adress h3 {
+    padding-top: 100px;
+    color: #8c1e32;
+}
+
+.contacts h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8c1e32;
+    padding-bottom: 150px;
+}
+
+.adress span {
+    font-size: 17px;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .contacts {
-    float: right;
-    padding-right: 50px;
-    color: #8c1e32;
+    padding-top: 80px;
 }
 
-.adress h2 {
-    padding-left: 5px;
-    color: #8c1e32;
-}
-
-.contacts p {
-    font-size: 18px;
-    font-weight: bold;
+.adress {
+    padding-bottom: 158px;
 }

@@ -1,0 +1,30 @@
+/* .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+.searchings{
+    display: flex; 
+    background-color: #ffffff;
+    height: 65px;
+    border-bottom: 1px solid grey;
+    font-family: medium;
+}
+.action_btn{
+    color: #E88848;
+    text-decoration: none;
+    font-size: 90%;
+}
+.icon_user, .icon_love{
+    height: 25px;
+}
+.logo{
+    height: 50px;
+}
+.icon_search{
+    height: 20px;
+}
+.input_button{
+    border: none;
+    background-color: rgba(236, 234, 234, 0.945);
+}
