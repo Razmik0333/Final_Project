@@ -19,7 +19,7 @@ function App() {
   const data = useSelector(bookSelector);
   return (
     <>
-      <Header data={data} />
+      <Header />
 
       <Routes>
         <Route path="" element={<Home data={data} />} />

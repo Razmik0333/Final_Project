@@ -1,14 +1,14 @@
+import InputFiter from './headerCompontnts/InputFiter/InputFilter';
 import NavBar from './headerCompontnts/NavBar/NavBar';
 import SearchBar from './headerCompontnts/SearchBar/SearchBar';
-// import './Header.css';
-// import { NavLink } from "react-router-dom"
 
-function Header({ data }) {
+function Header() {
   return (
-    <>
-      <NavBar data={data} />
-      <SearchBar data={data} />
-    </>
+    <header className="header">
+      <NavBar />
+      <SearchBar />
+      <InputFiter />
+    </header>
   );
 }
 export default Header;

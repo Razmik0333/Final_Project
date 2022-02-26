@@ -10,6 +10,7 @@ import App from './App';
 import { store } from './redux/store';
 import './components/Header/headerCompontnts/NavBar/NavBar.css';
 import './components/Header/headerCompontnts/SearchBar/SearchBar.css';
+import './components/Header/Header.css';
 
 ReactDOM.render(
   <React.StrictMode>

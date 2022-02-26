@@ -4,11 +4,13 @@ const FETCH_BOOKS = 'bookDuck/FETCH_BOOKS';
 const BOOK_ID = 'bookDuck/BOOK_ID';
 const CATEGORY_ID = 'bookDuck/CATEGORY_ID';
 const CURRENT_PAGE = 'bookDuck/CURRENT_PAGE';
+const FILTER_INPUT = 'bookDuck/FILTER_INPUT';
 
 export const createBooks = createAction(FETCH_BOOKS);
 export const getCurrentBook = createAction(BOOK_ID);
 export const getCurrentCategory = createAction(CATEGORY_ID);
 export const getCurrentPage = createAction(CURRENT_PAGE);
+export const getFilterData = createAction(FILTER_INPUT);
 
 export const fetchBooks = () => (dispatch) => {
   fetch('/db.json')
@@ -27,12 +29,16 @@ export const currentPage = (id) => (dispatch) => {
 export const currentCategory = (id) => (dispatch) => {
   dispatch(getCurrentCategory(id));
 };
+export const getFilter = (id) => (dispatch) => {
+  dispatch(getFilterData(id));
+};
 
 const initialStateApp = {
   books: [],
   bookID: null,
   categoryID: null,
   currentPage: 1,
+  filterInput: [],
 };
 
 const BookDuck = (state = initialStateApp, action) => {
@@ -56,6 +62,11 @@ const BookDuck = (state = initialStateApp, action) => {
       return {
         ...state,
         currentPage: action.payload,
+      };
+    case FILTER_INPUT:
+      return {
+        ...state,
+        filterInput: action.payload,
       };
     default:
       return state;
