@@ -1,12 +1,12 @@
 import BookCategories from '../BookCategories/BookCategories';
 import BookList from '../BookList/BookList';
 
-function BookFromCategory() {
+function BookFromCategory({ data }) {
   return (
-    <>
-      <BookCategories />
-      <BookList />
-    </>
+    <div className="content">
+      <BookCategories data={data} />
+      <BookList data={data} />
+    </div>
   );
 }
 

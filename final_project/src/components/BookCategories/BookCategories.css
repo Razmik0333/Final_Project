@@ -1,0 +1,33 @@
+aside{
+    width: 20%;
+    border: 2px solid #d6d6d6;
+}
+aside h1, p{
+    padding: 10px 20px;
+    font-family: "SegoeWP";
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.category{
+    padding: 10px 15px;
+    font-family: "Segoe UI Symbol";
+    border-bottom: 1px solid #e6e7e8;
+    font-size: 15px;
+    margin: 0;
+    display: block;
+}
+
+.all{
+    background-color: #86c56a;
+    color: #fff;
+}
+
+.categories{
+    padding:10px 0px;
+
+}
+.category a {
+    text-decoration: none;
+    color:#6c6b6b ;
+}

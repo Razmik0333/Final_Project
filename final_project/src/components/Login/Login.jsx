@@ -1,87 +1,71 @@
-import { useState } from "react";
-import './Register.css';
-import {NavLink}from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { loginUser } from '../../redux/ducks/userDuck';
+import '../Register/Register.css';
 
-function Login(){
-    const [email, setEmail]=useState("");
-    const [password, setPassword]=useState("");
-    const [allEntry,setAllEntry]=useState([]);
-    const [submite,setSubmite]=useState("");
-    const [error, setError]=useState("")
-   
-//     function submiteForm(e){
-//     e.preventDefault()
-   
-//    const newEntry={email:email,password:password};
-//    setAllEntry([...allEntry, newEntry]);
-//    console.log(allEntry);
+function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user, users } = useSelector((state) => state.userDuck);
+  console.log(user);
+  console.log(users);
+  const defaultInputValues = { username: '', password: '' };
+  const {
+    register, handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({ defaultValues: defaultInputValues });
 
-//     }
-    function handleSubmit(evt){
-        evt.preventDefault();
-     
-        if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)|| email==="" || password==="" ){
-            setError(true)
-        }
-        else{
-            setSubmite(true);
-            setError(false);
-        }
+  const onSubmit = (data) => {
+    dispatch(loginUser(data));
+  };
 
-        const newEntry={email:email,password:password};
-        setAllEntry([...allEntry, newEntry]);
-        console.log(allEntry);
-     }
+  const [formMessage, setformMessage] = useState('');
 
-     const successMessage = () => {
-        return (
-          <div
-            className="success"
-            style={{
-              display:submite ? '' : 'none',
-            }}>
-            <span className="error_mesiges">շնորհավորում ենք  դուք  մուտք գործեցիք!!</span>
-          </div>
-        );
-      };
-  
-  
-     
-  
-      function errorMessage(){
-        return(
-            <div className="error" style={{
-              display: error ? '' : 'none',
-            }}>
-                <span >Խնդրում ենք ճիշտ մուտքագրել բոլոր դաշտերը</span>
-            </div>
-        )
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      if (user.username) {
+        setformMessage('Login Succeed...');
+        setTimeout(() => { navigate('/', { replace: true }); }, 500);
+      } else {
+        setformMessage('Login Failed!');
       }
-      
-  
+    }
+  }, [isSubmitSuccessful, user]);
 
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <h3>ԳՐԱՆՑՎԱԾ ՀԱՃԱԽՈՐԴ</h3>
+      <div style={{ fontWeight: 'bold', textAlign: 'center' }}>{formMessage}</div>
+      <div className="form-group">
+        <input
+          type="text"
+          {...register('username', { required: 'Այս դաշտը պարտադիր է լրացնել:' })}
+          placeholder="Անուն"
+          className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">{errors.username?.message}</div>
+      </div>
+      <div className="form-group">
+        <input
+          type="password"
+          {...register('password', { required: 'Այս դաշտը պարտադիր է լրացնել:' })}
+          placeholder="Գաղտնաբառ"
+          className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">{errors.password?.message}</div>
+      </div>
+      <div className="form-group form-bottom">
+        <input type="submit" name="Login" value="Մուտք" className="btn_submite" />
+      </div>
+      <span className="register_span">
+        Եթե չունեք հաշիվ, կարող եք
 
-
-
-    return(
-          <div className="login">
-              
-            <form className="login_form" >
-                 <h2>ԳՐԱՆՑՎԱԾ ՀԱՃԱԽՈՐԴ</h2>
-                 <div className="errorMessages">
-                {errorMessage()}
-                {successMessage()}
-              </div>
-                <input onChange={(e)=>setEmail(e.target.value)} value={email} name="email" placeholder="էլ․ հասցե" autoComplete="off" type="text"/>
-                <input onChange={(e)=>setPassword(e.target.value)} value={password} name="password" placeholder="Գաղտնաբառ" autoComplete="off" type="password"/>
-                <button onClick={handleSubmit}  className="login_btn" type="submit">Մուտք</button>
-                <span>Եթե չունեք հաշիվ, կարող եք  <NavLink className='navLink777' to='/register'>Գրանցվել </NavLink></span>
-                
-
-             </form>
-            
-
-        </div>
-    )
+        <NavLink to="/register" className="nav-link">Գրանցվել</NavLink>
+      </span>
+    </form>
+  );
 }
-export default Login
+
+export default Login;

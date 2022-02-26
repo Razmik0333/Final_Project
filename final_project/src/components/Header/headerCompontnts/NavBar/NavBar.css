@@ -1,0 +1,52 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navigations {
+    display: flex;
+    background-color: #424242;
+    height: 40px;
+}
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+}
+.navigation > a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 90%;
+}
+.navigation > a:hover {
+    color: #E88848;
+}
+.network_tel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 200px;
+}
+/* .network_img, .phone{
+    display: flex;
+} */
+.phone > a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 90%;
+}
+.icon_tel {
+    height: 20px;
+}
+.img_net {
+    height: 25px;
+}
+.select{
+    border: none;
+    background-color: #424242;
+    color: white;
+    font-size: 90%;
+}
+.select:hover{
+    color:#E88848; 
+}

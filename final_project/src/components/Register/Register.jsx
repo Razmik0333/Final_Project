@@ -1,118 +1,80 @@
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { addUser } from '../../redux/ducks/userDuck';
 import './Register.css';
-import { useState } from "react";
-import {NavLink} from "react-router-dom"
-function Register(){
-    const [name, setName]=useState("");
-    const [surname, setSurname]=useState("");
-    const [age, setAge]=useState("");
-    const [email, setEmail]=useState("");
-    const [password, setPassword]=useState("");
-    const [allEntry,setAllEntry]=useState([]);
-    const [submite,setSubmite]=useState("");
-    const [error, setError]=useState("")
-   
 
-    function handleName(evt){
-        setName(evt.target.value);
-          setSubmite(false)
-    
-        }
-    
-        function handleSurname(evt){
-            setSurname(evt.target.value);
-            setSubmite(false)
-    
-       }
-       
+function Register() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const defaultInputValues = { username: '', email: '', password: '' };
+  const {
+    register, handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({ defaultValues: defaultInputValues });
+
+  const onSubmit = (data) => {
+    dispatch(addUser(data));
+    setTimeout(() => { navigate('/login', { replace: true }); }, 1000);
+  };
+
+  const [formMessage, setformMessage] = useState('');
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      setformMessage('Thank you for your registration...');
+    }
+  }, [isSubmitSuccessful]);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <h3>ՍՏԵՂԾԵԼ ՆՈՐ ՀԱՇԻՎ</h3>
+      <div style={{ fontWeight: 'bold', textAlign: 'center' }}>{formMessage}</div>
+      <div className="form-group">
+        <input
+          type="text"
+          {...register(
+            'username',
+            { required: 'Այս դաշտը պարտադիր է լրացնել:', maxLength: 100 },
+          )}
+          placeholder="Անուն"
+          className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">{errors.username?.message}</div>
+      </div>
+      <div className="form-group">
+        <input
+          type="text"
+          {...register('email', { required: 'Այս դաշտը պարտադիր է լրացնել:', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Please enter a valid email address' } })}
+          placeholder="Էլ․ հասցե"
+          className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">{errors.email?.message}</div>
+      </div>
+      <div className="form-group">
+        <input
+          type="password"
+          {...register('password', {
+            required: 'Այս դաշտը պարտադիր է լրացնել:',
+            min: { value: 3, message: 'Password minimum length must be at least 3 characters' },
+          })}
+          placeholder="Գաղտնաբառ"
+          className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">{errors.password?.message}</div>
+      </div>
+      <div className="form-group form-bottom">
+        <input type="submit" name="Register" value="Ստեղծել հաշիվ" className="btn_submite" />
+      </div>
+      <span className="register_span">
+        Եթե ունեք հաշիվ, կարող եք
         
-        function handleAge(evt){
-            setAge(evt.target.value);
-            setSubmite(false)
-    
-        }
-    
-        function handleEmail(evt){
-          setEmail(evt.target.value);
-          setSubmite(false)
-    
-      }
-        function handlePassword(evt){
-            setPassword(evt.target.value)
-            setSubmite(false)
-    
-        }
+        <NavLink to="/login" className="nav-link">Մուտք</NavLink>
+      </span>
 
+    </form>
+  );
+}
 
-    function handleSubmite(evt){
-        evt.preventDefault();
-     
-        if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)|| email==="" || password==="" || name===""|| surname==="" ||age=== ""  ){
-            setError(true)
-        }
-        else{
-            setSubmite(true);
-            setError(false);
-        }
-
-        const newEntry={name:name,surname:surname,age:age,email:email,password:password};
-        setAllEntry([...allEntry, newEntry]);
-        console.log(allEntry);
-     }
-
-     const successMessage = () => {
-        return (
-          <div
-            className="success"
-            style={{
-              display:submite ? '' : 'none',
-            }}>
-            <span className="error_mesiges">շնորհավորում ենք  դուք  գրայնցվեցիք!!</span>
-          </div>
-        );
-      };
-  
-  
-     
-  
-      function errorMessage(){
-        return(
-            <div className="error" style={{
-              display: error ? '' : 'none',
-            }}>
-                <span >Խնդրում ենք ճիշտ մուտքագրել բոլոր դաշտերը</span>
-            </div>
-        )
-      }
-      
-  
-
-
-
-
-    
-    return(
-        <div className="register">
-            <form  className="registtration_form">
-            
-                <h2>ՍՏԵՂԾԵԼ ՆՈՐ ՀԱՇԻՎ</h2>
-                <div className="errorMessages">
-                   {errorMessage()}
-                   {successMessage()}
-                </div>
-                <input value={name} onChange={handleName} name="name" placeholder="Անուն" type="text"/>
-                <input value={surname} onChange={handleSurname} name="surname" placeholder="Ազգանուն" type="text"/>
-                <input value={age} onChange={handleAge} name="age" placeholder="Տարիք" type="number"/>
-                <input value={email} onChange={handleEmail} name="email" placeholder="Էլ․ հասցե" type="text"/>
-                <input value={password} onChange={handlePassword} name="password" placeholder="Գաղտնաբառ" type="password"/>
-                <button onClick={handleSubmite} className="registration_btn" type="submit">Ստեղծել հաշիվ </button>
-                <span>Եթե չունեք հաշիվ, կարող եք <NavLink className='navLink777' to='/login'>Մուտք</NavLink></span> 
-                
-                
-            </form>
-           
-           
-             </div>
-             )
-         };
-         export default Register
-
+export default Register;
