@@ -8,6 +8,7 @@ import {
 } from '../../helpers/functions';
 import { bookSelector, currentFilterSelector, currentPageSelector } from '../../helpers/reduxSelectors';
 import { currentPage } from '../../redux/ducks/bookDuck';
+import Loader from '../Loader/Loader';
 import BookListItem from './BookListItem';
 import FiltersOptions from './FiltersOptions';
 import Pagination from './Pagination';
@@ -20,30 +21,41 @@ function BookByFilters() {
   const curPage = useSelector(currentPageSelector);
   const [booksData, setBooksData] = useState(data);
   const [pageCount, setPageCount] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const start = getStart(COUNT_BOOKS, curPage);
 
   const finish = getFinal(COUNT_BOOKS, curPage, total);
+  const getFitered = (() => {
+    const filteredArray = getFilteredArray(data, filterAlias);
+    dispatch(currentPage(1));
+    setPageCount(getPages(data));
+    setBooksData(arrStart(filteredArray, start, finish));
+
+    setIsLoaded(true);
+  });
   useEffect(() => {
     const id = setTimeout(() => {
-      const filteredArray = getFilteredArray(data, filterAlias);
-      const arr = arrStart(filteredArray, start, finish);
-      dispatch(currentPage(1));
-      setPageCount(getPages(data));
-      setBooksData(arr);
-    }, 200);
+      getFitered();
+    }, 1000);
     return () => {
+      setIsLoaded(false);
       clearTimeout(id);
     };
   }, [filterAlias]);
   return (
     <div className="right-side">
       <FiltersOptions filters={filters} />
+      {
+        isLoaded ? (
+          <main className="book-list">
+            <BookListItem data={booksData} />
+            <Pagination data={booksData} pageCount={pageCount} />
+          </main>
+        )
+          : <Loader />
+      }
 
-      <main className="book-list">
-        <BookListItem data={booksData} />
-        <Pagination data={booksData} pageCount={pageCount} />
-      </main>
     </div>
   );
 }

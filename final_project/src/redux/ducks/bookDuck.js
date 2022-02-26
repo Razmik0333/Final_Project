@@ -13,10 +13,10 @@ export const getCurrentPage = createAction(CURRENT_PAGE);
 export const getFilterOption = createAction(FILTER_OPTION);
 
 export const fetchBooks = () => (dispatch) => {
-  fetch('/db.json')
+  fetch('http://localhost:3001/books')
     .then((res) => res.json())
     .then((res) => {
-      dispatch(createBooks(res.books));
+      dispatch(createBooks(res));
     })
     .catch((e) => console.log('error from messagesContext', e));
 };

@@ -5,15 +5,8 @@ import { bookSelector } from '../../helpers/reduxSelectors';
 // import { fetchBooks } from '../../redux/ducks/bookDuck';
 import './BookCategories.css';
 import Categories from './Categories';
+import { getCategories } from '../../helpers/functions';
 
-const getCategories = (data) => data.reduce((acc, curr) => {
-  curr.categories.forEach((item) => {
-    if (!acc.includes(item)) {
-      acc.push(item);
-    }
-  });
-  return acc;
-}, []);
 function BooksCategories() {
   const data = useSelector(bookSelector);
   const categories = getCategories(data);

@@ -43,3 +43,12 @@ export const getFilteredArray = (data, filterType) => {
       return data;
   }
 };
+
+export const getCategories = (data) => data.reduce((acc, curr) => {
+  curr.categories.forEach((item) => {
+    if (!acc.includes(item)) {
+      acc.push(item);
+    }
+  });
+  return acc;
+}, []);

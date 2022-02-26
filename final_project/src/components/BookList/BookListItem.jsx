@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import noImg from '../../images/no-image.png';
@@ -35,4 +36,4 @@ function BookListItem({ data }) {
   );
 }
 
-export default BookListItem;
+export default memo(BookListItem);
