@@ -9,7 +9,6 @@ import About from './components/About/About';
 import News from './components/News/News';
 import Policy from './components/Policy/Policy';
 import Adresses from './components/Adresses/Adresses';
-
 import { fetchBooks } from './redux/ducks/bookDuck';
 import { bookSelector } from './helpers/reduxSelectors';
 import Login from './components/Login/Login';

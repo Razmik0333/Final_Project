@@ -4,8 +4,9 @@ import { NavLink } from 'react-router-dom';
 import { currentBook, currentPage } from '../../redux/ducks/bookDuck';
 import noImg from '../../images/no-image.png';
 import './BookList.css';
-import { currentCategorySelector, currentPageSelector } from '../../helpers/reduxSelectors';
+import { currentCategorySelector, currentPageSelector, changeCurrencyes } from '../../helpers/reduxSelectors';
 import { COUNT_BOOKS, filters } from '../../helpers/constants';
+import { currencyValue } from '../../helpers/functions';
 
 const getArrayCategories = (data, current) => data.reduce((acc, curr) => {
   if (curr.categories.includes(current)) {
@@ -76,6 +77,8 @@ function BookList({ data }) {
 
   const finish = getFinal(COUNT_BOOKS, curPage, total);
 
+  const currencyChange = useSelector(changeCurrencyes); //
+
   useEffect(() => {
     const id = setTimeout(() => {
       const arr = arrayStartPage(data, start, finish);
@@ -145,8 +148,7 @@ function BookList({ data }) {
                     </span>
                   </p>
                   <p className="book-cost">
-                    {item.pageCount * 10}
-                    &#1423;
+                    {currencyValue(item.pageCount * 10, currencyChange)}
                   </p>
                 </section>
               </NavLink>

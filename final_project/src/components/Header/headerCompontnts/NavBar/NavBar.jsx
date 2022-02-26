@@ -1,6 +1,18 @@
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { currencyes, languages } from '../../../../helpers/constants';
+import { getChangeCurrency, getChangeLanguage } from '../../../../redux/ducks/configsDuck';
 
 function NavBar() {
+  const dispatch = useDispatch();
+
+  const handleChangeCurrency = (e) => {
+    dispatch(getChangeCurrency(e.target.value));
+  };
+  const handleChangelanguage = (e) => {
+    dispatch(getChangeLanguage(e.target.value));
+  };
+
   return (
     <div className="navigations">
       <div className="container">
@@ -24,21 +36,39 @@ function NavBar() {
           </div>
         </div>
         <div className="navigation">
-          <NavLink to="/books"> Գրքեր </NavLink>
           <NavLink to="/about"> Մեր մասին </NavLink>
           <NavLink to="/news"> Նորություններ </NavLink>
-          <NavLink to="/blog"> Բլոգ </NavLink>
+          <NavLink to="/faq"> Հաճախ տրվող հարցեր </NavLink>
+          {/* <NavLink to="/blog"> Բլոգ </NavLink> */}
         </div>
         <div className=" selected">
-          <select className="select" name="change" id="change">
-            <option value="AMD"> AMD </option>
-            <option value="RUB"> RUB </option>
-            <option value="USD"> USD </option>
+          <select
+            className="select"
+            onChange={handleChangeCurrency}
+            name="change"
+            id="change"
+          >
+            {
+              currencyes.map((currency) => (
+                <option key={currency.target} value={currency.target}>
+                  {currency.option}
+                </option>
+              ))
+            }
           </select>
-          <select className="select" name="language" id="language">
-            <option value="Arm"> Հայ</option>
-            <option value="Rus"> Рус</option>
-            <option value="Eng"> Eng </option>
+          <select
+            className="select"
+            onChange={handleChangelanguage}
+            name="language"
+            id="language"
+          >
+            {
+              languages.map((language) => (
+                <option key={language.target} value={language.target}>
+                  {language.option}
+                </option>
+              ))
+            }
           </select>
         </div>
       </div>
