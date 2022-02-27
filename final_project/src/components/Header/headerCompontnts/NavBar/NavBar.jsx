@@ -1,57 +1,57 @@
 import { NavLink } from 'react-router-dom';
 
-const rusJson = {
-  books: 'Книги',
-  aboutUs: 'О нас',
-  news: 'Новости',
-  blog: 'Блог',
-  search: 'Поиск',
-  login: 'Войти',
-  favorites: 'Избранное',
-  basket: 'Корзина',
-  howToOrder: 'Как заказать',
-  contact: 'Контакты',
-};
-const engJson = {
-  books: 'Books',
-  aboutUs: 'About us',
-  news: 'News',
-  blog: 'Blog',
-  search: 'Search',
-  login: 'Login',
-  favorites: 'Favorites',
-  basket: 'Basket',
-  howToOrder: 'How to order',
-  contact: 'Contact',
-};
-const armJson = {
-  books: 'Գրքեր',
-  aboutUs: 'Մեր մասին',
-  news: 'Նորություններ',
-  blog: 'Բլոգ',
-  search: 'Որոնել',
-  login: 'Մուտք',
-  favorites: 'Նախընտրելի',
-  basket: 'Զամբյուղ',
-  howToOrder: 'Ինչպես պատվիրել',
-  contact: 'Կապ',
-};
+// const rusJson = {
+//   books: 'Книги',
+//   aboutUs: 'О нас',
+//   news: 'Новости',
+//   blog: 'Блог',
+//   search: 'Поиск',
+//   login: 'Войти',
+//   favorites: 'Избранное',
+//   basket: 'Корзина',
+//   howToOrder: 'Как заказать',
+//   contact: 'Контакты',
+// };
+// const engJson = {
+//   books: 'Books',
+//   aboutUs: 'About us',
+//   news: 'News',
+//   blog: 'Blog',
+//   search: 'Search',
+//   login: 'Login',
+//   favorites: 'Favorites',
+//   basket: 'Basket',
+//   howToOrder: 'How to order',
+//   contact: 'Contact',
+// };
+// const armJson = {
+//   books: 'Գրքեր',
+//   aboutUs: 'Մեր մասին',
+//   news: 'Նորություններ',
+//   blog: 'Բլոգ',
+//   search: 'Որոնել',
+//   login: 'Մուտք',
+//   favorites: 'Նախընտրելի',
+//   basket: 'Զամբյուղ',
+//   howToOrder: 'Ինչպես պատվիրել',
+//   contact: 'Կապ',
+// };
 
-const onChange = (ev) => {
-  let selectedLanguage;
-  switch (ev.target.value) {
-    case 'Rus': selectedLanguage = rusJson; break;
-    case 'Arm': selectedLanguage = armJson; break;
-    default: selectedLanguage = engJson; break;
-  }
+// const onChange = (ev) => {
+//   let selectedLanguage;
+//   switch (ev.target.value) {
+//     case 'Rus': selectedLanguage = rusJson; break;
+//     case 'Arm': selectedLanguage = armJson; break;
+//     default: selectedLanguage = engJson; break;
+//   }
 
-  for (const i in selectedLanguage) {
-    const item = document.getElementsByClassName(i)[0];
-    if (item) {
-      item.innerHTML = selectedLanguage[i];
-    }
-  }
-};
+//   for (const i in selectedLanguage) {
+//     const item = document.getElementsByClassName(i)[0];
+//     if (item) {
+//       item.innerHTML = selectedLanguage[i];
+//     }
+//   }
+// };
 
 function NavBar() {
   return (
@@ -88,7 +88,7 @@ function NavBar() {
             <option value="RUB"> RUB </option>
             <option value="USD"> USD </option>
           </select>
-          <select className="select" name="language" id="language" onChange={onChange}>
+          <select className="select" name="language" id="language" onChange={() => {}}>
             <option value="Arm"> Հայ</option>
             <option value="Rus"> Рус</option>
             <option value="Eng"> Eng </option>
