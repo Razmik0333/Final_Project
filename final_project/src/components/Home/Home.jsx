@@ -1,13 +1,13 @@
 import BookCategories from '../BookCategories/BookCategories';
-import BookList from '../BookList/BookList';
+import BookListDefault from '../BookList/BookListDefault';
 
 import './Home.css';
 
-function Home({ data }) {
+function Home() {
   return (
-    <div className="content">
-      <BookCategories data={data} />
-      <BookList data={data} />
+    <div className="container">
+      <BookCategories />
+      <BookListDefault />
     </div>
   );
 }

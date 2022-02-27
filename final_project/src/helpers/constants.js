@@ -1,10 +1,32 @@
-export const colors = [
-  'black',
-  'red',
-  'green',
-  'purple',
-  'brown',
+export const currencyes = [
+  {
+    target: 'amdChange',
+    option: 'AMD',
+  },
+  {
+    target: 'rubChange',
+    option: 'RUB',
+  },
+  {
+    target: 'usdChange',
+    option: 'USD',
+  },
 ];
+export const languages = [
+  {
+    target: 'armChange',
+    option: 'Հայ',
+  },
+  {
+    target: 'rusChange',
+    option: 'Рус',
+  },
+  {
+    target: 'engChange',
+    option: 'Eng',
+  },
+];
+
 export const filters = [
   {
     alias: 'newest',
@@ -20,17 +42,10 @@ export const filters = [
   },
 ];
 export const COUNT_BOOKS = 15;
-export const colorTarget = [
-  {
-    target: 'nameColor',
-    option: 'name',
-  },
-  {
-    target: 'textColor',
-    option: 'text',
-  },
-];
+
 export const FILTER_OPTIONS = [
-  'name',
-  'text',
+  'title',
+  'categories',
+  'longDescription',
+  'authors',
 ];
