@@ -115,7 +115,7 @@
 .add:hover, .sub:hover{
      color: #e0a781;
 }
-.add, .sub{
+.cart_section_button {
      padding: 6px;
      cursor: pointer;
      color: #E88848;

@@ -1,8 +1,3 @@
-/* .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
 .searchings{
     display: flex; 
     background-color: #ffffff;
@@ -11,16 +6,13 @@
     font-family: medium;
 }
 .searching {
-    /* margin-bottom: 5px; */
     max-width: 100%;
-    /* height: 40px; */
     position: relative;
 }
 .autocomplate{
     position: absolute;
     left: 0;
     background:  rgba(236, 234, 234, 0.945);
-    /* top: 50px; */
     width: 100%;
     list-style: none;
     margin: 0;
@@ -38,7 +30,6 @@
     background:  rgba(255, 255, 255, 0.945);
     cursor: pointer;
     color: #E88848;
-    /* transition: cubic-bezier(1, 0, 0, 1) .3s all; */
 }
 
 .action{
@@ -62,14 +53,11 @@
     height: 20px;
 }
 .input_button{
-    /* display: flex; */
-    /* width: 100%; */
-    /* height: 100%; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* padding-left: 35px; */
     outline: none;
-
     border: none;
     background-color: rgba(236, 234, 234, 0.945);
+}
+.basket_input{
+    border: none;
+    width: 15px;
 }
