@@ -3,9 +3,6 @@
     bottom: 0;
     right: 0;
     left: 0;
-    /* height: 110px;
-    margin-top: -110px; */
-    /* position: fixed; */
 } 
 
 .logo1 {
@@ -17,6 +14,9 @@
 .menu_bar{
     font-family: "bold", "arm-bold";
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
 }
 
 .social1{

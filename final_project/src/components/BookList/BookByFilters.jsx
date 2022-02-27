@@ -6,12 +6,19 @@ import {
   getFilteredArray,
   getFinal, getPages, getStart,
 } from '../../helpers/functions';
-import { bookSelector, currentFilterSelector, currentPageSelector } from '../../helpers/reduxSelectors';
+import {
+  bookSelector, currentFilterSelector, currentPageSelector,
+} from '../../helpers/reduxSelectors';
 import { currentPage } from '../../redux/ducks/bookDuck';
 import Loader from '../Loader/Loader';
 import BookListItem from './BookListItem';
 import FiltersOptions from './FiltersOptions';
 import Pagination from './Pagination';
+
+export const mapStateToProps = ({ cart }) => ({
+  totalPrice: cart.item.reduce((total, book) => total + book.price, 0),
+//   count: cart.item.length,
+});
 
 function BookByFilters() {
   const data = useSelector(bookSelector);
@@ -31,9 +38,22 @@ function BookByFilters() {
     dispatch(currentPage(1));
     setPageCount(getPages(data));
     setBooksData(arrStart(filteredArray, start, finish));
-
     setIsLoaded(true);
   });
+  const getArrFromInterval = () => {
+    /// const changeArray = currCategory === null ? data : getArrayCategories(data, currCategory);
+    const arr = arrStart(data, start, finish);
+    setPageCount(getPages(data));
+    setBooksData(arr);
+    setIsLoaded(true);
+  };
+  useEffect(() => {
+    const id = setTimeout(() => getArrFromInterval(), 300);
+    return () => {
+      clearTimeout(id);
+      setIsLoaded(false);
+    };
+  }, [curPage]);
   useEffect(() => {
     const id = setTimeout(() => {
       getFitered();

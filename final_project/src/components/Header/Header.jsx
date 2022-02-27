@@ -1,4 +1,4 @@
-import InputFiter from './headerCompontnts/InputFiter/InputFilter';
+// import InputFiter from './headerCompontnts/InputFiter/InputFilter';
 import NavBar from './headerCompontnts/NavBar/NavBar';
 import SearchBar from './headerCompontnts/SearchBar/SearchBar';
 
@@ -7,7 +7,6 @@ function Header() {
     <header className="header">
       <NavBar />
       <SearchBar />
-      <InputFiter />
     </header>
   );
 }

@@ -1,4 +1,4 @@
-import { memo } from 'react';
+// import { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import noImg from '../../images/no-image.png';
@@ -6,6 +6,7 @@ import { currentBook } from '../../redux/ducks/bookDuck';
 
 function BookListItem({ data }) {
   const dispatch = useDispatch();
+  console.log(data);
 
   const handleBookId = (e) => {
     dispatch(currentBook(e.target.dataset.id));
@@ -36,4 +37,4 @@ function BookListItem({ data }) {
   );
 }
 
-export default memo(BookListItem);
+export default BookListItem;
