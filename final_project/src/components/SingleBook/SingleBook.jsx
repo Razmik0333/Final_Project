@@ -1,19 +1,26 @@
-import { useSelector } from 'react-redux';
-import { currencyValue } from '../../helpers/functions';
-import { changeCurrencyes, currentBookSelector } from '../../helpers/reduxSelectors';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import cart from '../../images/cart.svg';
 import heart from '../../images/heart.svg';
 import check from '../../images/check.svg';
 import './SingleBook.css';
+import { bookSelector, changeCurrencyes, currentBookSelector } from '../../helpers/reduxSelectors';
+import { fetchBooks } from '../../redux/ducks/bookDuck';
+import { currencyValue } from '../../helpers/functions';
 
-function SingleBook({ data }) {
+function SingleBook() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
+  const data = useSelector(bookSelector);
   const currentId = useSelector(currentBookSelector);
   const book = data.find((item) => item.isbn === currentId);
   const currencyChange = useSelector(changeCurrencyes);
   const date = new Date(book.publishedDate.$date);
   const getNumber = (num) => (num < 10 ? `0${num}` : num);
   return (
-    <div className="book-content">
+    <div className="container">
       <div className="book-picture">
         <section>
           <img src={book.thumbnailUrl} alt={book.title} />
