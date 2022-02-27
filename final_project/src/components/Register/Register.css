@@ -1,26 +1,11 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 
 .form-group{
   margin: 10px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
 }
-.form-group .form-control,
 .form-group .invalid-feedback{
   min-width:50%;
   width: auto;
@@ -28,7 +13,9 @@ code {
 .form-group .invalid-feedback{
   color: red;
 }
-
+.form-group>input{
+  height: 40px;
+}
 h3{
   margin: 40px auto 20px !important;
   color:#666;
@@ -37,9 +24,7 @@ h3{
 }
 
 
-/* hr.sep{
-  margin: 5px auto 20px!important;
-}  */
+
 .btn_submite{
   height: 40px;
     width: 294px;
@@ -54,9 +39,13 @@ h3{
     display: flex;
     justify-content: center;
 }
+form{
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
 
 .register_span .nav-link{
   color: #E88848;
  text-decoration: none;
- /* text-align: center; */
 }

@@ -1,0 +1,25 @@
+.image_library .library {
+    width: 70%;
+    height: 200px;
+    display: block;
+}
+
+.policy_list {
+    text-align: center;
+}
+
+.policy_list h2 {
+    font-size: 23px;
+    text-align: center;
+}
+
+ul.order {
+    font-size: 15px;
+    display: inline-block;
+    text-align: left;
+}
+
+ul.order li {
+    list-style-type: disc;
+    padding-bottom: 15px;
+}

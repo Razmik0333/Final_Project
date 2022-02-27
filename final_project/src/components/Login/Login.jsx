@@ -26,10 +26,10 @@ function Login() {
   useEffect(() => {
     if (isSubmitSuccessful) {
       if (user.username) {
-        setformMessage('Login Succeed...');
+        setformMessage('Մուտք գործեցիք հաջողությամբ...');
         setTimeout(() => { navigate('/', { replace: true }); }, 500);
       } else {
-        setformMessage('Login Failed!');
+        setformMessage('Մուտքը չստացվեց:');
       }
     }
   }, [isSubmitSuccessful, user]);

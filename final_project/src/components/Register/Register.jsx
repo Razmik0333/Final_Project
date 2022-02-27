@@ -23,12 +23,12 @@ function Register() {
 
   useEffect(() => {
     if (isSubmitSuccessful) {
-      setformMessage('Thank you for your registration...');
+      setformMessage('Շնորհակալություն գրանցման համար...');
     }
   }, [isSubmitSuccessful]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className='register_form' onSubmit={handleSubmit(onSubmit)}>
       <h3>ՍՏԵՂԾԵԼ ՆՈՐ ՀԱՇԻՎ</h3>
       <div style={{ fontWeight: 'bold', textAlign: 'center' }}>{formMessage}</div>
       <div className="form-group">
@@ -36,17 +36,19 @@ function Register() {
           type="text"
           {...register(
             'username',
-            { required: 'Այս դաշտը պարտադիր է լրացնել:', maxLength: 100 },
+            { required: 'Այս դաշտը պարտադիր է լրացնել:', maxLength: 100 }
           )}
           placeholder="Անուն"
           className={`form-control ${errors.username ? 'is-invalid' : ''}`}
         />
-        <div className="invalid-feedback">{errors.username?.message}</div>
+        <div className="invalid-feedback">
+           {errors.username?.message}
+        </div>
       </div>
       <div className="form-group">
         <input
           type="text"
-          {...register('email', { required: 'Այս դաշտը պարտադիր է լրացնել:', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Please enter a valid email address' } })}
+          {...register('email', { required: 'Այս դաշտը պարտադիր է լրացնել:', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Խնդրում ենք մուտքագրել գործող էլեկտրոնային հասցե ' } })}
           placeholder="Էլ․ հասցե"
           className={`form-control ${errors.email ? 'is-invalid' : ''}`}
         />
