@@ -18,7 +18,6 @@ function BookListDefault() {
     dispatch(fetchBooks());
   });
   const data = useSelector(bookSelector);
-  console.log('🚀 ~ file: BookListDefault.jsx ~ line 20 ~ BookListDefault ~ data000', data);
   const total = data.length;
   const [booksData, setBooksData] = useState(data);
 
