@@ -1,0 +1,30 @@
+.about {
+    display: flex;
+    background-color: gray;
+    height: 402px;   
+}
+
+.title {
+    color: white;
+    font-size: 25px;
+    font-weight: 800;
+    padding: 30px;
+    text-transform: uppercase;
+    padding-top: 34px;
+    width: 50%;   
+}
+
+.info_description p {
+    color: white;
+    display: inline-block;
+    width: 100%;
+    padding-left: 30px;
+    font-family: 'Verdana-Italic';
+    font-size: 17px;
+}
+
+.image {
+    width: 650px;
+    height: 402px;
+    float: right;
+}

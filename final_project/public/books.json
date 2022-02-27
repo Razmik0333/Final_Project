@@ -1,0 +1,44 @@
+{
+  "books": [
+     {
+       "title": "iOS in Practice",
+       "isbn": "1617291269",
+       "pageCount": 325,
+       "publishedDate": { "$date": "2013-11-01T00:00:00.000-0700" },
+       "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/cahill.jpg",
+       "status": "PUBLISH",
+       "authors": ["Bear P. Cahill"],
+       "categories": ["Mobile Technology"]
+     },
+     {
+       "title": "SOA Governance in Action",
+       "isbn": "1617290270",
+       "pageCount": 0,
+       "publishedDate": { "$date": "2012-07-27T00:00:00.000-0700" },
+       "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/dirksen.jpg",
+       "status": "PUBLISH",
+       "authors": ["Jos Dirksen"],
+       "categories": ["java"]
+     },
+     {
+       "title": "Spring Roo in Action",
+       "isbn": "193518296X",
+       "pageCount": 500,
+       "publishedDate": { "$date": "2012-04-13T00:00:00.000-0700" },
+       "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/rimple.jpg",
+       "status": "PUBLISH",
+       "authors": ["Ken Rimple", "Srini Penchikala"],
+       "categories": ["Java"]
+     },
+     {
+       "title": "Silverlight 5 in Action",
+       "isbn": "1617290319",
+       "pageCount": 925,
+       "publishedDate": { "$date": "2012-06-01T00:00:00.000-0700" },
+       "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/pbrown2.jpg",
+       "status": "PUBLISH",
+       "authors": ["Pete Brown"],
+       "categories": ["Microsoft", ".NET"]
+     }
+ ]
+}

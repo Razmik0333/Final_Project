@@ -6,7 +6,7 @@ export const changeRoute = (payload) => ({
   payload,
 });
 export const changeLanguage = (payload) => ({
-  type: CHANGE_ROUTE,
+  type: CHANGE_LANGUAGE,
   payload,
 });
 
