@@ -15,7 +15,7 @@ function NavBar() {
 
   return (
     <div className="navigations">
-      <div className="container">
+      <div className="container container-beetwin">
         <div className="network_tel">
           <div className="network_img">
             <NavLink to="/facebook" href="https://www.facebook.com/">

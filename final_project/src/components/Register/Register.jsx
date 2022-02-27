@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, NavLink } from 'react-router-dom';
@@ -28,27 +29,38 @@ function Register() {
   }, [isSubmitSuccessful]);
 
   return (
-    <form className='register_form' onSubmit={handleSubmit(onSubmit)}>
+    <form className="register_form" onSubmit={handleSubmit(onSubmit)}>
       <h3>ՍՏԵՂԾԵԼ ՆՈՐ ՀԱՇԻՎ</h3>
       <div style={{ fontWeight: 'bold', textAlign: 'center' }}>{formMessage}</div>
       <div className="form-group">
         <input
           type="text"
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...register(
             'username',
-            { required: 'Այս դաշտը պարտադիր է լրացնել:', maxLength: 100 }
+            { required: 'Այս դաշտը պարտադիր է լրացնել:', maxLength: 100 },
           )}
           placeholder="Անուն"
           className={`form-control ${errors.username ? 'is-invalid' : ''}`}
         />
         <div className="invalid-feedback">
-           {errors.username?.message}
+          { errors.username?.message }
         </div>
       </div>
       <div className="form-group">
         <input
           type="text"
-          {...register('email', { required: 'Այս դաշտը պարտադիր է լրացնել:', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Խնդրում ենք մուտքագրել գործող էլեկտրոնային հասցե ' } })}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...register(
+            'email',
+            {
+              required: 'Այս դաշտը պարտադիր է լրացնել:',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'Խնդրում ենք մուտքագրել գործող էլեկտրոնային հասցե ',
+              },
+            },
+          )}
           placeholder="Էլ․ հասցե"
           className={`form-control ${errors.email ? 'is-invalid' : ''}`}
         />
@@ -71,7 +83,6 @@ function Register() {
       </div>
       <span className="register_span">
         Եթե ունեք հաշիվ, կարող եք
-        
         <NavLink to="/login" className="nav-link">Մուտք</NavLink>
       </span>
 

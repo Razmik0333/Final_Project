@@ -1,12 +1,14 @@
-import { memo } from 'react';
-import { useDispatch } from 'react-redux';
+// import { memo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { currencyValue } from '../../helpers/functions';
+import { changeCurrencyes } from '../../helpers/reduxSelectors';
 import noImg from '../../images/no-image.png';
 import { currentBook } from '../../redux/ducks/bookDuck';
 
 function BookListItem({ data }) {
   const dispatch = useDispatch();
-
+  const currencyChange = useSelector(changeCurrencyes);
   const handleBookId = (e) => {
     dispatch(currentBook(e.target.dataset.id));
   };
@@ -23,8 +25,8 @@ function BookListItem({ data }) {
                   </span>
                 </p>
                 <p className="book-cost">
-                  {item.pageCount * 10}
-                  &#1423;
+                  {currencyValue(item.pageCount * 10, currencyChange)}
+
                 </p>
               </section>
             </NavLink>
@@ -36,4 +38,4 @@ function BookListItem({ data }) {
   );
 }
 
-export default memo(BookListItem);
+export default BookListItem;

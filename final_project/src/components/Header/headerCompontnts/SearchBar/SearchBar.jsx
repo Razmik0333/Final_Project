@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import InputChange from '../InputChange/InputChange';
+import InputChange from '../../../BookList/InputChange';
 
 function SearchBar() {
   return (
     <div className="searchings">
-      <div className="container">
+      <div className="container container-beetwin">
         <div className="logos">
           <NavLink to="/">
             <img className="logo" src="/icons/2815428.png" alt="logo" />

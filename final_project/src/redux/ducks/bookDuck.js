@@ -19,7 +19,7 @@ export const getBasketAddBook = createAction(ADD_BOOK);
 export const getBasketRemoveBook = createAction(REMOVE_BOOK);
 
 export const fetchBooks = () => (dispatch) => {
-  fetch('http://localhost:3001/books')
+  fetch('http://localhost:3001/books') // http://localhost:3001/books
     .then((res) => res.json())
     .then((res) => {
       dispatch(createBooks(res));

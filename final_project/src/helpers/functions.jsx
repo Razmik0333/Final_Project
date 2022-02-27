@@ -13,7 +13,7 @@ export const getStart = (count, page) => count * (page - 1);
 
 export const getFinal = (count, cur, total) => (count * cur < total ? cur * count - 1 : total - 1);
 
-const getSortedByNewestArray = (data) => (data.sort((a, b) => {
+export const getSortedByNewestArray = (data) => (data.sort((a, b) => {
   const dateA = new Date(a.publishedDate.$date);
   const dateB = new Date(b.publishedDate.$date);
   return dateA - dateB;

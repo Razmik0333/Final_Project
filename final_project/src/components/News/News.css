@@ -1,10 +1,18 @@
-.news_img {
-    padding-top: 100px;
+ .news_img {
     width: 120px;
     max-height: 350px;
     margin: auto;
 }
+.book-news {
+    margin-left: 50px;
 
+}
 .book h6 {
     margin-bottom: 132px;
-}
+} 
+.new-container{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    line-height: 60px;
+} 

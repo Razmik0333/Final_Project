@@ -10,7 +10,6 @@ function Footer() {
             <img className="logo" src="/icons/2815428.png" alt="logo" />
           </NavLink>
         </div>
-
         <div className="menu_bar">
           <strong><NavLink to="/about">Մեր մասին</NavLink></strong>
           <strong><NavLink to="/news">Նորություններ</NavLink></strong>

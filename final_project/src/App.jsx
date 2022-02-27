@@ -11,6 +11,7 @@ import Register from './components/Register/Register';
 import Header from './components/Header/Header';
 import Category from './components/Category/Category';
 import Filter from './components/Filter/Filter';
+import SearchResult from './components/SearchResult/SearchResult';
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
         <Route
           path="/filter/:id"
           element={<Filter />}
+        />
+        <Route
+          path="/search/:id"
+          element={<SearchResult />}
         />
         <Route path="/" element={<Home />} />
 

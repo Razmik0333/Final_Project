@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, NavLink } from 'react-router-dom';
@@ -8,10 +9,9 @@ import '../Register/Register.css';
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, users } = useSelector((state) => state.userDuck);
-  console.log(user);
-  console.log(users);
+  const { user } = useSelector((state) => state.userDuck);
   const defaultInputValues = { username: '', password: '' };
+  console.log('🚀 ~ file: Login.jsx ~ line 13 ~ Login ~ user', user);
   const {
     register, handleSubmit,
     formState: { errors, isSubmitSuccessful },
@@ -41,7 +41,10 @@ function Login() {
       <div className="form-group">
         <input
           type="text"
-          {...register('username', { required: 'Այս դաշտը պարտադիր է լրացնել:' })}
+          {...register(
+            'username',
+            { required: 'Այս դաշտը պարտադիր է լրացնել:' },
+          )}
           placeholder="Անուն"
           className={`form-control ${errors.username ? 'is-invalid' : ''}`}
         />

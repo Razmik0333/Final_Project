@@ -42,7 +42,6 @@
         "react/prop-types": "off",
         "prettier.endOfLine": 0,
         "default-param-last" : "off",
-        "files.eol": 0,
-        "parser": "@babel/eslint-parser"
+        "files.eol": 0
     }
 }

@@ -39,6 +39,20 @@ function BookByCategory() {
       setIsLoaded(false);
     };
   }, [currCategory]);
+  const getArrFromInterval = () => {
+    const changeArray = currCategory === null ? data : getArrayCategories(data, currCategory);
+    const arr = arrStart(changeArray, start, finish);
+    setPageCount(getPages(changeArray));
+    setCategoryData(arr);
+    setIsLoaded(true);
+  };
+  useEffect(() => {
+    const id = setTimeout(() => getArrFromInterval(), 300);
+    return () => {
+      clearTimeout(id);
+      setIsLoaded(false);
+    };
+  }, [curPage]);
   return (
     <div className="right-side">
       <FiltersOptions filters={filters} />
