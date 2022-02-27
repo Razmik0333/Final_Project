@@ -34,7 +34,7 @@ function Footer() {
           <span>
             &copy;
             {new Date().getFullYear()}
-            , &copy; «Բուկինիստ» ՍՊԸ |,
+            ,
           </span>
           <span>Բոլոր իրավունքները պահպանված են</span>
         </div>
