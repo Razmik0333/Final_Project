@@ -1,95 +1,81 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { addUser } from '../../redux/ducks/userDuck';
 import './Register.css';
 
 function Register() {
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [age, setAge] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [, setSubmite] = useState('');
-  const [error, setError] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const defaultInputValues = { username: '', email: '', password: '' };
+  const {
+    register, handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({ defaultValues: defaultInputValues });
 
-  function handleName(evt) {
-    setName(evt.target.value);
-    setSubmite(false);
-  }
+  const onSubmit = (data) => {
+    dispatch(addUser(data));
+    setTimeout(() => { navigate('/login', { replace: true }); }, 1000);
+  };
 
-  function handleSurname(evt) {
-    setSurname(evt.target.value);
-    setSubmite(false);
-  }
+  const [formMessage, setformMessage] = useState('');
 
-  function handleAge(evt) {
-    setAge(evt.target.value);
-    setSubmite(false);
-  }
-
-  function handleEmail(evt) {
-    setEmail(evt.target.value);
-    setSubmite(false);
-  }
-  function handlePassword(evt) {
-    setPassword(evt.target.value);
-    setSubmite(false);
-  }
-
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email) || name === '' || surname === '' || age === '' || password === '' || email === '') {
-      setError(true);
-    } else {
-      setSubmite(true);
-      setError(false);
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      setformMessage('Շնորհակալություն գրանցման համար...');
     }
-  }
-
-  function errorMessage() {
-    return (
-      <div
-        className="error"
-        style={{
-          display: error ? '' : 'none',
-        }}
-      >
-        <span className="error_mesiges">Խնդրում ենք ճիշտ մուտքագրել բոլոր դաշտերը</span>
-      </div>
-    );
-  }
+  }, [isSubmitSuccessful]);
 
   return (
-    <div className="register">
-      <div>
-        <h2>ՍՏԵՂԾԵԼ ՆՈՐ ՀԱՇԻՎ</h2>
+    <form className='register_form' onSubmit={handleSubmit(onSubmit)}>
+      <h3>ՍՏԵՂԾԵԼ ՆՈՐ ՀԱՇԻՎ</h3>
+      <div style={{ fontWeight: 'bold', textAlign: 'center' }}>{formMessage}</div>
+      <div className="form-group">
+        <input
+          type="text"
+          {...register(
+            'username',
+            { required: 'Այս դաշտը պարտադիր է լրացնել:', maxLength: 100 }
+          )}
+          placeholder="Անուն"
+          className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">
+           {errors.username?.message}
+        </div>
       </div>
-
-      <div className="errorMessages">
-        {errorMessage()}
+      <div className="form-group">
+        <input
+          type="text"
+          {...register('email', { required: 'Այս դաշտը պարտադիր է լրացնել:', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Խնդրում ենք մուտքագրել գործող էլեկտրոնային հասցե ' } })}
+          placeholder="Էլ․ հասցե"
+          className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">{errors.email?.message}</div>
       </div>
+      <div className="form-group">
+        <input
+          type="password"
+          {...register('password', {
+            required: 'Այս դաշտը պարտադիր է լրացնել:',
+            min: { value: 3, message: 'Password minimum length must be at least 3 characters' },
+          })}
+          placeholder="Գաղտնաբառ"
+          className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">{errors.password?.message}</div>
+      </div>
+      <div className="form-group form-bottom">
+        <input type="submit" name="Register" value="Ստեղծել հաշիվ" className="btn_submite" />
+      </div>
+      <span className="register_span">
+        Եթե ունեք հաշիվ, կարող եք
+        
+        <NavLink to="/login" className="nav-link">Մուտք</NavLink>
+      </span>
 
-      <form className="registtration_form">
-
-        <input value={name} placeholder="Անուն" type="text" onChange={handleName} />
-        <br />
-        <input value={surname} placeholder="Ազգանուն" type="text" onChange={handleSurname} />
-        <br />
-        <input value={age} placeholder="Տարիք" type="number" onChange={handleAge} />
-        <br />
-        <input value={email} placeholder="էլ․հասցե" type="text" onChange={handleEmail} />
-        <br />
-        <input value={password} placeholder="Գաղտնաբառ" type="password" onChange={handlePassword} />
-        <br />
-
-        <button type="submit" onClick={handleSubmit} className="registration_btn">Ստեղծել հաշիվ</button>
-        <span>
-          Արդեն գրանցվե ՞լ ես
-          {' '}
-          <NavLink className="navLink777" to="/login">Մուտք</NavLink>
-        </span>
-
-      </form>
-    </div>
+    </form>
   );
 }
 
