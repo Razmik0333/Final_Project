@@ -22,15 +22,16 @@ function SearchBar() {
           </NavLink>
         </div>
         <div className="action_preferred">
-          <NavLink className="action_btn" to="/Preferred">
+          <NavLink className="action_btn" to="">
             <img className="icon_love" src="/icons/9358186.png" alt="icon" />
             <span> Նախընտրելի </span>
           </NavLink>
         </div>
         <div className="action_basket">
-          <NavLink className="action_btn" to="/basket">
+          <NavLink className="action_btn" to="">
             <img className="icon_love" src="/icons/9349824.png" alt="icon" />
             <span> Զամբյուղ </span>
+            <input type="text" className="basket_input" value="0" />
           </NavLink>
         </div>
       </div>

@@ -78,7 +78,7 @@ function InputChange() {
           disabled={isClose}
           onClick={handleClickButten}
           type="button"
-          className="input_button"
+          className="search_button"
         >
           <img className="icon_search" src="/icons/156545.png" alt="serach" />
         </button>

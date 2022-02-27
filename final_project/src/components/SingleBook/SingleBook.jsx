@@ -1,12 +1,9 @@
+import './SingleBook.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import cart from '../../images/cart.svg';
-import heart from '../../images/heart.svg';
-import check from '../../images/check.svg';
-import './SingleBook.css';
-import { bookSelector, changeCurrencyes, currentBookSelector } from '../../helpers/reduxSelectors';
+import Cart from './SingleBookcopmponents/Cart/Cart';
+import { bookSelector, currentBookSelector } from '../../helpers/reduxSelectors';
 import { fetchBooks } from '../../redux/ducks/bookDuck';
-import { currencyValue } from '../../helpers/functions';
 
 function SingleBook() {
   const dispatch = useDispatch();
@@ -16,7 +13,6 @@ function SingleBook() {
   const data = useSelector(bookSelector);
   const currentId = useSelector(currentBookSelector);
   const book = data.find((item) => item.isbn === currentId);
-  const currencyChange = useSelector(changeCurrencyes);
   const date = new Date(book.publishedDate.$date);
   const getNumber = (num) => (num < 10 ? `0${num}` : num);
   return (
@@ -40,7 +36,9 @@ function SingleBook() {
             <span className="book-text">{book.longDescription}</span>
           </section>
         </div>
+
         <div className="desc-cart-section">
+
           <section className="desc-section">
             <ul className="description">
               <li>
@@ -61,27 +59,9 @@ function SingleBook() {
               </li>
             </ul>
           </section>
-          <section className="cart-section">
-            <p className="price">
-              {currencyValue(book.pageCount * 10, currencyChange)}
-            </p>
-            <p className="book-count">
-              <span className="sub">-</span>
-              <input type="text" className="count" defaultValue="0" />
-              <span className="add">+</span>
-            </p>
-            <p>
-              <button className="add-cart" type="button">
-                <span>Գնել</span>
-                <img src={cart} alt="" />
-              </button>
-              <img className="favorite" src={heart} alt="" />
-            </p>
-            <p className="available">
-              <img src={check} className="check" alt="" />
-              <span>Առկա է</span>
-            </p>
-          </section>
+
+          <Cart />
+
         </div>
       </main>
     </div>

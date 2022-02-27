@@ -10,9 +10,9 @@ function News() {
       .catch((e) => console.log('error', e));
   });
   return (
-    <div className="container">
+    <div className="container new-container">
       { book.map((item) => (
-        <div className="book">
+        <div className="book-news">
           <img className="news_img" src={item.thumbnailUrl} alt="" />
           <br />
           <h6>{item.title}</h6>

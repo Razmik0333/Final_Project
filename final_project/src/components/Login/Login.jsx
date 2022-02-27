@@ -1,71 +1,73 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-// import '../Register.css';
+/* eslint-disable react/jsx-props-no-spreading */
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { loginUser } from '../../redux/ducks/userDuck';
+import '../Register/Register.css';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [, setSubmite] = useState('');
-  const [error, setError] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.userDuck);
+  const defaultInputValues = { username: '', password: '' };
+  console.log('🚀 ~ file: Login.jsx ~ line 13 ~ Login ~ user', user);
+  const {
+    register, handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({ defaultValues: defaultInputValues });
 
-  function handlePassword(evt) {
-    setPassword(evt.target.value);
-    setSubmite(false);
-  }
-  function handleEmail(event) {
-    setEmail(event.target.value);
-    setSubmite(false);
-  }
+  const onSubmit = (data) => {
+    dispatch(loginUser(data));
+  };
 
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email) || email === '' || password === '') {
-      setError(true);
-    } else {
-      setSubmite(true);
-      setError(false);
+  const [formMessage, setformMessage] = useState('');
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      if (user.username) {
+        setformMessage('Մուտք գործեցիք հաջողությամբ...');
+        setTimeout(() => { navigate('/', { replace: true }); }, 500);
+      } else {
+        setformMessage('Մուտքը չստացվեց:');
+      }
     }
-  }
-
-  function errorMessage() {
-    return (
-      <div
-        className="error"
-        style={{
-          display: error ? '' : 'none',
-        }}
-      >
-        <span className="error_mesiges">Խնդրում ենք ճիշտ մուտքագրել բոլոր դաշտերը</span>
-      </div>
-    );
-  }
+  }, [isSubmitSuccessful, user]);
 
   return (
-
-    <div className="login">
-
-      <div>
-        <h2>ԳՐԱՆՑՎԱԾ ՀԱՃԱԽՈՐԴ</h2>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <h3>ԳՐԱՆՑՎԱԾ ՀԱՃԱԽՈՐԴ</h3>
+      <div style={{ fontWeight: 'bold', textAlign: 'center' }}>{formMessage}</div>
+      <div className="form-group">
+        <input
+          type="text"
+          {...register(
+            'username',
+            { required: 'Այս դաշտը պարտադիր է լրացնել:' },
+          )}
+          placeholder="Անուն"
+          className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">{errors.username?.message}</div>
       </div>
-
-      <div className="errorMessages">
-        {errorMessage()}
+      <div className="form-group">
+        <input
+          type="password"
+          {...register('password', { required: 'Այս դաշտը պարտադիր է լրացնել:' })}
+          placeholder="Գաղտնաբառ"
+          className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+        />
+        <div className="invalid-feedback">{errors.password?.message}</div>
       </div>
+      <div className="form-group form-bottom">
+        <input type="submit" name="Login" value="Մուտք" className="btn_submite" />
+      </div>
+      <span className="register_span">
+        Եթե չունեք հաշիվ, կարող եք
 
-      <form className="login_form">
-        <input value={email} onChange={handleEmail} placeholder="էլ, հասցե" className="log_inp" type="text" />
-        <br />
-        <input value={password} onChange={handlePassword} placeholder="Գաղտնաբառ" className="log_inp" type="password" />
-        <br />
-
-        <button type="submit" onClick={handleSubmit} className="login_btn">Մուտք</button>
-        <span>
-          Եթե չունեք հաշիվ, կարող եք
-          <NavLink className="navLink777" to="/register">Գրանցվել </NavLink>
-        </span>
-
-      </form>
-    </div>
+        <NavLink to="/register" className="nav-link">Գրանցվել</NavLink>
+      </span>
+    </form>
   );
 }
 

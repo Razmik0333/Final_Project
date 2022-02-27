@@ -6,6 +6,8 @@ const CATEGORY_ID = 'bookDuck/CATEGORY_ID';
 const CURRENT_PAGE = 'bookDuck/CURRENT_PAGE';
 const FILTER_OPTION = 'bookDuck/FILTER_OPTION';
 const FILTER_INPUT = 'bookDuck/FILTER_INPUT';
+const ADD_BOOK = 'bookDuck/ADD_BOOK';
+const REMOVE_BOOK = 'bookDuck/REMOVE_BOOK';
 
 export const createBooks = createAction(FETCH_BOOKS);
 export const getCurrentBook = createAction(BOOK_ID);
@@ -13,6 +15,8 @@ export const getCurrentCategory = createAction(CATEGORY_ID);
 export const getCurrentPage = createAction(CURRENT_PAGE);
 export const getFilterOption = createAction(FILTER_OPTION);
 export const getFilterData = createAction(FILTER_INPUT);
+export const getBasketAddBook = createAction(ADD_BOOK);
+export const getBasketRemoveBook = createAction(REMOVE_BOOK);
 
 export const fetchBooks = () => (dispatch) => {
   fetch('http://localhost:3001/books') // http://localhost:3001/books
@@ -37,6 +41,13 @@ export const currentFilter = (id) => (dispatch) => {
 };
 export const getFilter = (id) => (dispatch) => {
   dispatch(getFilterData(id));
+};
+
+export const basketAddBook = (id) => (dispatch) => {
+  dispatch(getBasketAddBook(id));
+};
+export const basketRemoveBook = (id) => (dispatch) => {
+  dispatch(getBasketRemoveBook(id));
 };
 
 const initialStateApp = {
@@ -79,6 +90,16 @@ const BookDuck = (state = initialStateApp, action) => {
       return {
         ...state,
         filterInput: action.payload,
+      };
+    case ADD_BOOK:
+      return {
+        ...state,
+        item: [...state.item, action.payload],
+      };
+    case REMOVE_BOOK:
+      return {
+        ...state,
+        item: state.item.filter((obj) => obj.id !== action.payload),
       };
     default:
       return state;

@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { PersistGate } from 'redux-persist/integration/react';
 import './style/reset.css';
 import './index.css';
-import 'antd/dist/antd.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'antd/dist/antd.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import { Provider } from 'react-redux';
 import App from './App';
 import { store, persistor } from './redux/store';

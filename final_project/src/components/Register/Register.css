@@ -1,48 +1,51 @@
-.register, .login{
-    text-align: center;
-    display: grid;
-    justify-content: center;
-    /* background-color: blueviolet */
-  }
-  .login_form{
-    width: 400px;
-    height: 305px;
-  }
-  
-  .registtration_form, .login_form{
-    margin: 45px;
-    display: grid;
-    justify-content: center;
-    /* align-items: center; */
-    /* background-color: red */
-  }
-  .registtration_form{
-    width: 500px;
-    height: 530px;
-  }
-  .registtration_form>input, .login_form>input{
-    height: 90%;
-    width: 320px;
-    border-radius: 5%;
-    border: none; 
-    background-color: #F2F3F5;
-    text-decoration: none;
-  }
-  .registration_btn, .login_btn{
-    height: 40px;
-      width: 294px;
-      border-radius: 5%;
-      font-size: 16px;
-      background: #E88848;
-      margin: auto;
-      color: white;
-      border: none;
-  }
- .error_mesiges{
-     color: red;
- }
 
- .navLink777{
-   color: #E88848;
-   text-decoration: none;
- }
+
+.form-group{
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.form-group .invalid-feedback{
+  min-width:50%;
+  width: auto;
+}
+.form-group .invalid-feedback{
+  color: red;
+}
+.form-group>input{
+  height: 40px;
+}
+h3{
+  margin: 40px auto 20px !important;
+  color:#666;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.btn_submite{
+  height: 40px;
+    width: 294px;
+    border-radius: 5%;
+    font-size: 16px;
+    background: #E88848;
+    margin: auto;
+    color: white;
+    border: none;
+}
+.register_span{
+    display: flex;
+    justify-content: center;
+}
+form{
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+
+.register_span .nav-link{
+  color: #E88848;
+ text-decoration: none;
+}

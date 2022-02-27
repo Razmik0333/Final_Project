@@ -29,7 +29,7 @@ function NavBar() {
             </NavLink>
           </div>
           <div className="phone">
-            <NavLink to="/telephone" href="+374 911119">
+            <NavLink to="/telephone" href="+374 99 911119">
               <span><img className="icon_tel" src="/icons/156515.png" alt="tel" /></span>
               <span> +374 911119 </span>
             </NavLink>
@@ -39,7 +39,6 @@ function NavBar() {
           <NavLink to="/about"> Մեր մասին </NavLink>
           <NavLink to="/news"> Նորություններ </NavLink>
           <NavLink to="/faq"> Հաճախ տրվող հարցեր </NavLink>
-          {/* <NavLink to="/blog"> Բլոգ </NavLink> */}
         </div>
         <div className=" selected">
           <select

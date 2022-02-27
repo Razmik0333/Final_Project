@@ -1,8 +1,9 @@
 .footer {
     background-color: #F2F3F5;
-    bottom: 0;
-    right: 0;
-    left: 0;
+
+    margin-top: 96px;
+
+    height: 24%;
 } 
 
 .logo1 {

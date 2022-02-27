@@ -27,7 +27,7 @@
      {
        "title": "Specification by Example",
        "isbn": "1617290084",
-       "pageCount": 0,
+       "pageCount": 560,
        "publishedDate": { "$date": "2011-06-03T00:00:00.000-0700" },
        "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/adzic.jpg",
        "status": "PUBLISH",
@@ -177,7 +177,7 @@
      {
        "title": "MongoDB in Action",
        "isbn": "1935182870",
-       "pageCount": 0,
+       "pageCount": 350,
        "publishedDate": { "$date": "2011-12-12T00:00:00.000-0800" },
        "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/banker.jpg",
        "shortDescription": "MongoDB In Action is a comprehensive guide to MongoDB for application developers. The book begins by explaining what makes MongoDB unique and describing its ideal use cases. A series of tutorials designed for MongoDB mastery then leads into detailed examples for leveraging MongoDB in e-commerce, social networking, analytics, and other common applications.",

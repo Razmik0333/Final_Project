@@ -18,7 +18,7 @@ function Adresses() {
         </div>
         <div className="contacts">
           <h5>
-            Հեռ: +374 99 112233
+            Հեռ: +374 99 911199
             <br />
             Էլ. փոստ: info@bookstore.am
           </h5>
