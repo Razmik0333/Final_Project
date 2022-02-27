@@ -21,7 +21,10 @@ function InputChange() {
   };
 
   useEffect(() => () => {
-    const id = setTimeout(() => filteredData(), 200);
+    const id = setTimeout(() => {
+      console.log('render');
+      filteredData();
+    }, 200);
     return (
       clearTimeout(id));
   }, [filterInputValue, data]);

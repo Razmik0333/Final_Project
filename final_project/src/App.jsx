@@ -24,6 +24,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/adresses" element={<Adresses />} />
+        {/* <Route path="/basket" element={<Basket />} /> */}
 
         <Route
           path="book/:id"
