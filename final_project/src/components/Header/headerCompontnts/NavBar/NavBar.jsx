@@ -1,5 +1,58 @@
 import { NavLink } from 'react-router-dom';
 
+const rusJson = {
+  books: 'Книги',
+  aboutUs: 'О нас',
+  news: 'Новости',
+  blog: 'Блог',
+  search: 'Поиск',
+  login: 'Войти',
+  favorites: 'Избранное',
+  basket: 'Корзина',
+  howToOrder: 'Как заказать',
+  contact: 'Контакты',
+};
+const engJson = {
+  books: 'Books',
+  aboutUs: 'About us',
+  news: 'News',
+  blog: 'Blog',
+  search: 'Search',
+  login: 'Login',
+  favorites: 'Favorites',
+  basket: 'Basket',
+  howToOrder: 'How to order',
+  contact: 'Contact',
+};
+const armJson = {
+  books: 'Գրքեր',
+  aboutUs: 'Մեր մասին',
+  news: 'Նորություններ',
+  blog: 'Բլոգ',
+  search: 'Որոնել',
+  login: 'Մուտք',
+  favorites: 'Նախընտրելի',
+  basket: 'Զամբյուղ',
+  howToOrder: 'Ինչպես պատվիրել',
+  contact: 'Կապ',
+};
+
+const onChange = (ev) => {
+  let selectedLanguage;
+  switch (ev.target.value) {
+    case 'Rus': selectedLanguage = rusJson; break;
+    case 'Arm': selectedLanguage = armJson; break;
+    default: selectedLanguage = engJson; break;
+  }
+
+  for (const i in selectedLanguage) {
+    const item = document.getElementsByClassName(i)[0];
+    if (item) {
+      item.innerHTML = selectedLanguage[i];
+    }
+  }
+};
+
 function NavBar() {
   return (
     <div className="navigations">
@@ -24,18 +77,18 @@ function NavBar() {
           </div>
         </div>
         <div className="navigation">
-          <NavLink to="/books"> Գրքեր </NavLink>
-          <NavLink to="/about"> Մեր մասին </NavLink>
-          <NavLink to="/news"> Նորություններ </NavLink>
-          <NavLink to="/blog"> Բլոգ </NavLink>
+          <NavLink to="/books" className="books"> Գրքեր </NavLink>
+          <NavLink to="/about" className="aboutUs"> Մեր մասին </NavLink>
+          <NavLink to="/news" className="news"> Նորություններ </NavLink>
+          <NavLink to="/blog" className="blog"> Բլոգ </NavLink>
         </div>
-        <div className=" selected">
+        <div className="selected">
           <select className="select" name="change" id="change">
             <option value="AMD"> AMD </option>
             <option value="RUB"> RUB </option>
             <option value="USD"> USD </option>
           </select>
-          <select className="select" name="language" id="language">
+          <select className="select" name="language" id="language" onChange={onChange}>
             <option value="Arm"> Հայ</option>
             <option value="Rus"> Рус</option>
             <option value="Eng"> Eng </option>
