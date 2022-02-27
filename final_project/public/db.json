@@ -1,4 +1,10 @@
-{
+{ "users":[
+  {
+    "name":"Alex",
+    "username":"Alex123",
+    "password":"test"
+  }
+],
   "books": [
      {
        "title": "Unlocking Android",

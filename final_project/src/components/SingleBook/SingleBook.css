@@ -53,13 +53,14 @@
      border: 2px solid #6e6262;
 }
 .desc-section{
-     width: 30%;
+     max-width: 351px;
      padding: 20px;
+     width: 100%;
 }
 .cart-section{
      width: 30%;
-    border: 1px solid #d6d6d6;
-    margin: 20px 60px;
+     border: 1px solid #d6d6d6;
+     margin: 20px 60px;
 }
 .desc-cart-section{
      display: flex;
@@ -121,7 +122,7 @@
      color: #E88848;
 }
 .available span{
-     margin-left: 10px;
+    margin-left: 10px;
     font-weight: 300;
     vertical-align: super;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
