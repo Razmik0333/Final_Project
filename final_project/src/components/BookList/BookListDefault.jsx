@@ -16,7 +16,7 @@ function BookListDefault() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchBooks());
-  });
+  }, []);
   const data = useSelector(bookSelector);
   const total = data.length;
   const [booksData, setBooksData] = useState(data);

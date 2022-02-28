@@ -61,3 +61,7 @@
     border: none;
     width: 15px;
 }
+.container_beetween{
+    align-items: center;
+    justify-content: space-between;
+}

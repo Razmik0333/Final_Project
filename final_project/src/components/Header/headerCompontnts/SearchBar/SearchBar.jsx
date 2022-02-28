@@ -4,7 +4,7 @@ import InputChange from '../InputChange/InputChange';
 function SearchBar() {
   return (
     <div className="searchings">
-      <div className="container">
+      <div className="container container_beetween">
         <div className="logos">
           <NavLink to="/">
             <img className="logo" src="/icons/2815428.png" alt="logo" />
